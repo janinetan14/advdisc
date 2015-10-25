@@ -92,17 +92,50 @@ function scaleHyperbola(){
 
 function reflectHyperbola(){
 }
-
-function translateParabola(){
+function translateParabola(vx, vy, tx, ty, magnitude, orientation){
+	createParabola(vx + tx, vy + ty, magnitude, orientation, "aquamarine");
 }
 
-function rotateParabola(){
+function rotateParabola(vx, vy, degree, magnitude, orientation){
+	if(degree == 90)
+	{
+		if(orientation == "vertical")
+			createParabola(vy * -1, vx, magnitude * -1, "horizontal", "aquamarine");
+		else if(orientation == "horizontal")
+			createParabola(vy * -1, vx , magnitude, "vertical", "aquamarine");
+	}
+	else if(degree == 270)
+	{
+		if(orientation == "vertical")
+			createParabola(vy , vx * -1, magnitude, "horizontal", "aquamarine");
+		else if(orientation == "horizontal")
+			createParabola(vy * -1, vx * -1, magnitude * -1, "vertical", "aquamarine");
+	}
+	else if(degree == 180)
+	{
+			createParabola(vx * -1, vy * -1, magnitude * -1, orientation, "aquamarine"); 
+	}
 }
 
-function scaleParabola(){
+function scaleParabola(vx, vy, scalar, magnitude, orientation){
+	createParabola(vx, vy, magnitude * scalar, orientation, "aquamarine");
 }
 
-function reflectParabola(){
+function reflectParabola(vx, vy, axis, magnitude, orientation){
+	if(axis == "y")
+	{
+		if(orientation == "vertical")
+			createParabola(vx * -1, vy, magnitude, orientation, "aquamarine");
+		else if(orientation == "horizontal")
+			createParabola(vx * -1, vy, magnitude * -1, orientation, "aquamarine");
+	}
+	else if(axis == "x")
+	{
+		if(orientation == "vertical")
+			createParabola(vx, vy * -1, magnitude  * -1, orientation, "aquamarine");
+		else if(orientation == "horizontal")
+			createParabola(vx, vy * -1, magnitude, orientation, "aquamarine");
+	}
 }
 
 function translateEllipse(){
