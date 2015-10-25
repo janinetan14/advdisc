@@ -139,7 +139,7 @@
                             <input type="radio" value="90clockwise" checked>90 degrees clockwise<br><br>
                             <input type="radio" value="90counter">90 degrees counter clockwise<br><br>
                             <input type="radio" value="180">180 degrees<br><br>
-                            <input type="submit"></input>
+                            <input type="submit" onclick="getRotateInputs()"></input>
                         </form>
                     </div>
                 </div>
@@ -147,25 +147,25 @@
                     <button id="scaleBtn" name="transformButtons" class="categoryLabel">Scale</button>
                     <div id="scaleInputs" name="transformLabels" class="padtop hidediv">
                         Scale: <input id="numScale" type="number" step="any"></input><br><br>
-                        <input type="submit"></input>
+                        <input type="submit" onclick="getScaleInputs()"></input>
                     </div>
                 </div>
                 <div id="reflect" name="transform" class="padtop hidediv">
                     <button id="reflectBtn" name="transformButtons" class="categoryLabel">Reflect</button>
                     <div id="reflectInputs" name="transformLabels" class="padtop hidediv">
                         <form>
-                            <input type="radio" value="xaxis">X-axis<br><br>
-                            <input type="radio" value="yaxis">Y-axis<br><br>
-                            <input type="submit"></input>
+                            <input type="radio" value="x">X-axis<br><br>
+                            <input type="radio" value="y">Y-axis<br><br>
+                            <input type="submit" onclick="getReflectInputs()"></input>
                         </form>
                     </div>
                 </div>
                 <div id="shear" name="transform" class="padtop hidediv">
                     <button id="shearBtn" name="transformButtons" class="categoryLabel">Shear</button>
                     <div id="shearInputs" name="transformLabels" class="padtop hidediv">
-                        X: <input type="number" step="any"></input><br><br>
-                        Y: <input type="number" step="any"></input><br><br>
-                        <input type="submit"></input>
+                        X: <input id="xShear" type="number" step="any"></input><br><br>
+                        Y: <input id="yShear" type="number" step="any"></input><br><br>
+                        <input type="submit" onclick="getShearInputs()"></input>
                     </div>
                 </div>
             </div>
