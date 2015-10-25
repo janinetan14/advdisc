@@ -193,37 +193,40 @@ function reflectParabola(vx, vy, axis, magnitude, orientation){
 function translateEllipse(center, tx, ty, horizontal, vertical){
 	center.x = center.x + tx;
 	center.y =  center.y + ty;
-	createEllipse(center, horizontal, vertical, "aquamarine");
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
 
 function rotateEllipse(center, degree, horizontal, vertical){
+	var ellipseSpecs;
 	if(degree == 90)
 	{
 		var temp = center.x;
 		center.x = center.y * -1;
 		center.y = temp;
-		createEllipse(center, vertical, horizontal, "aquamarine");
+		ellipseSpecs = createEllipse(center, vertical, horizontal, "aquamarine");
 	}
 	else if( degree == 270)
 	{
 		var temp = center.x * -1;
 		center.x = center.y;
 		center.y = temp;
-		createEllipse(center, vertical, horizontal, "aquamarine");
+		ellipseSpecs = createEllipse(center, vertical, horizontal, "aquamarine");
 	}
 	else if(degree == 180)
 	{
 		center.x = center.x * -1;
 		center.y = center.y * -1;
-		createEllipse(center, vertical, horizontal, "aquamarine");
+		ellipseSpecs = createEllipse(center, vertical, horizontal, "aquamarine");
 	}
-	
+	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
 
 function scaleEllipse(center, scalar, horizontal, vertical){
 	horizontal = horizontal * (Math.pow(scalar, 2));
 	vertical = vertical * (Math.pow(scalar, 2));
-	createEllipse(center, horizontal, vertical, "aquamarine");
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
 
 function reflectEllipse(center, axis, horizontal, vertical){
@@ -231,5 +234,6 @@ function reflectEllipse(center, axis, horizontal, vertical){
 		center.x = center.x * -1;
 	else if( axis == "x")
 		center.y = center.y * -1;
-	createEllipse(center, horizontal, vertical, "aquamarine");	
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
