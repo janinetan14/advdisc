@@ -45,45 +45,45 @@
 })();
 	
 function getPointInputs(){
-	var x = document.getElementById("xPoint").value;
-	var y = document.getElementById("yPoint").value;
+	var x = parseFloat(document.getElementById("xPoint").value);
+	var y = parseFloat(document.getElementById("yPoint").value);
 	createPoint(x,y, "blue");
 	$("#translate").show();
 }
 
 function getLineSegmentInputs(){
-	var x = document.getElementById("xLinesegment").value;
-	var y = document.getElementById("yLinesegment").value;
-	var x1 = document.getElementById("x1Linesegment").value;
-	var y1 = document.getElementById("y1Linesegment").value;
+	var x = parseFloat(document.getElementById("xLinesegment").value);
+	var y = parseFloat(document.getElementById("yLinesegment").value);
+	var x1 = parseFloat(document.getElementById("x1Linesegment").value);
+	var y1 = parseFloat(document.getElementById("y1Linesegment").value);
 	createSegment(x,y,x1,y1, "blue");
 }
 
 function getVectorInputs(){
-	var x = document.getElementById("xVector").value;
-	var y = document.getElementById("yVector").value;
-	var x1 = document.getElementById("x1Vector").value;
-	var y1 = document.getElementById("y1Vector").value;
+	var x = parseFloat(document.getElementById("xVector").value);
+	var y = parseFloat(document.getElementById("yVector").value);
+	var x1 = parseFloat(document.getElementById("x1Vector").value);
+	var y1 = parseFloat(document.getElementById("y1Vector").value);
 	createVector(x,y,x1,y1, "blue");
 	createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
 }
 
 function getEllipseInputs(){
-	var xValue = document.getElementById("xEllipse").value;
-	var yValue = document.getElementById("yEllipse").value;
-	var horizontal = document.getElementById("horizontalEllipse").value;
-	var vertical = document.getElementById("verticalEllipse").value;
+	var xValue = parseFloat(document.getElementById("xEllipse").value);
+	var yValue = parseFloat(document.getElementById("yEllipse").value);
+	var horizontal = parseFloat(document.getElementById("horizontalEllipse").value);
+	var vertical = parseFloat(document.getElementById("verticalEllipse").value);
 	createEllipse({"x": xValue, "y": yValue}, horizontal, vertical, "blue");
 	ellipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
 }
 
 function getParabolaInputs(){
-	var xValue = document.getElementById("xEllipse").value;
-	var yValue = document.getElementById("yEllipse").value;
+	var xValue = parseFloat(document.getElementById("xEllipse").value);
+	var yValue = parseFloat(document.getElementById("yEllipse").value);
 	var radVal = document.test.parabolaOrientation.value;
 }
 
 function getHyperbolaInputs(){
-	var xValue = document.getElementById("xHyperbola").value;
-	var yValue = document.getElementById("yHyperbola").value;
+	var xValue = parseFloat(document.getElementById("xHyperbola").value);
+	var yValue = parseFloat(document.getElementById("yHyperbola").value);
 }
