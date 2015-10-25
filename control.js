@@ -80,10 +80,11 @@ function getHyperbolaInputs(){
 }
 
 function getPolygonInputs(){
+	var points = [];
 	for ( var i=1; i < counter; i++ )
 	{
-		$('#x' + i).val();
-		$('#y' + i).val();
+		points.push({"x": parseFloat($('#x' + i).val()), "y": parseFloat($('#y' + i).val())});
 	}
-	createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
+	//createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
+	createPolygon(points, "blue");
 }
