@@ -1,6 +1,11 @@
 var board;
-// instantiation of graph board
+
 (function() {
+	initBoard();
+})();
+
+// instantiation of graph board
+function initBoard(){
 	board = JXG.JSXGraph.initBoard('jxgbox', {
 			boundingbox: [-5, 5, 5, -5],
 			keepaspectreatio: true,
@@ -8,7 +13,8 @@ var board;
 			grid: true,
 			showCopyright: false
 		});
-})();
+	document.getElementById("changedformula").innerHTML = '';
+}
 
 // float x, float y, string color
 function createPoint(x, y, color){ 

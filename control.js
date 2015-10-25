@@ -35,6 +35,7 @@ var submitted; // 0-point, 1-line, 2- vector, 3-ellipse, 4-parabola, 5-hyperbola
 })();
 	
 function getPointInputs(){
+	initBoard();
     xPoint = document.getElementById("xPoint").value;
     yPoint = document.getElementById("yPoint").value;
     printMatrix([{"x":xPoint, "y":yPoint}], "origformula");
@@ -45,6 +46,7 @@ function getPointInputs(){
 }
  
 function getLineSegmentInputs(){
+	initBoard();
 	xLine = parseFloat(document.getElementById("xLinesegment").value);
 	yLine = parseFloat(document.getElementById("yLinesegment").value);
 	x1Line = parseFloat(document.getElementById("x1Linesegment").value);
@@ -61,6 +63,7 @@ function getLineSegmentInputs(){
 }
  
 function getVectorInputs(){
+	initBoard();
 	xVector = parseFloat(document.getElementById("xVector").value);
 	yVector = parseFloat(document.getElementById("yVector").value);
 	x1Vector = parseFloat(document.getElementById("x1Vector").value);
@@ -77,6 +80,7 @@ function getVectorInputs(){
 }
  
 function getEllipseInputs(){
+	initBoard();
 	xEllipse = parseFloat(document.getElementById("xEllipse").value);
 	yEllipse = parseFloat(document.getElementById("yEllipse").value);
 	hEllipse = parseFloat(document.getElementById("horizontalEllipse").value);
@@ -92,6 +96,7 @@ function getEllipseInputs(){
 }
  
 function getParabolaInputs(){
+	initBoard();
 	xParabola = parseFloat(document.getElementById("xParabola").value);
 	yParabola = parseFloat(document.getElementById("yParabola").value);
     mParabola = parseFloat(document.getElementById("magnitude").value);
@@ -107,6 +112,7 @@ function getParabolaInputs(){
 }
 
 function getHyperbolaInputs(){
+	initBoard();
 	xHyperbola = parseFloat(document.getElementById("xHyperbola").value);
 	yHyperbola = parseFloat(document.getElementById("yHyperbola").value);
 	hHyperbola = parseFloat(document.getElementById("horizontalHyperbola").value);
@@ -121,6 +127,7 @@ function getHyperbolaInputs(){
 }
 
 function getPolygonInputs(){
+	initBoard();
 	points = [];
 	for ( var i=1; i < counter; i++ ){
 		points.push({"x": parseFloat($('#x' + i).val()), "y": parseFloat($('#y' + i).val())});
