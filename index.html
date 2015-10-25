@@ -1,0 +1,181 @@
+<html>
+	<head>
+		<title>ADVDISC</title>
+		<link rel="stylesheet" type="text/css" href="../distrib/jsxgraph.css" />
+		<script type="text/javascript" src="../src/loadjsxgraph.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="	http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&dummy=.js"></script>
+		<style>
+		.right{
+			float:right;
+			padding-right:3%;
+		}
+		.left{
+			float:left;
+			padding-left:3%;
+            width: 20%;
+		}
+        .center{
+            float:left;
+            padding-left: 3%;
+            width:20%;
+        }
+		.padtop{
+			padding-top:10px;
+		}
+		.categoryLabel{
+			font-size:25px;
+		}
+		.hidediv{
+			display:none;
+		}
+		button{
+			width:250px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="left">
+				<div id="pointDiv" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Point</button>
+						<div name="inputLabels" class="padtop hidediv">
+						X: <input id="xPoint" type="number" step="any"></input><br><br>
+						Y: <input id="yPoint" type="number" step="any"></input><br><br>
+						<input type="submit" onclick="getPointInputs()"></input>
+						</div>
+				</div>
+				<div id="linesegment" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Line Segment</button>
+						<div name="inputLabels" class="padtop hidediv">
+							X: <input id="xLinesegment" type="number" step="any"></input><br><br>
+							Y: <input id="yLinesegment" type="number" step="any"></input><br><br>
+							X: <input id="x1Linesegment" type="number" step="any"></input><br><br>
+							Y: <input id="y1Linesegment" type="number" step="any"></input><br><br>
+						<input type="submit" onclick="getLineSegmentInputs()"></input>
+						</div>
+				</div>
+				<div id="vector" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Vector</button>
+						<div name="inputLabels" class="padtop hidediv">
+							X: <input id="xVector" type="number" step="any"></input><br><br>
+							Y: <input id="yVector" type="number" step="any"></input><br><br>
+							X: <input id="x1Vector" type="number" step="any"></input><br><br>
+							Y: <input id="y1Vector" type="number" step="any"></input><br><br>
+						<input type="submit" onclick="getVectorInputs()"></input>
+						</div>
+				</div>
+				<div id="ellipse" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Ellipse</button>
+						<div name="inputLabels" class="padtop hidediv">
+							Center X coordinate: <input id="xEllipse" type="number" step="any"></input><br><br>
+							Center Y coordinate: <input id="yEllipse" type="number" step="any"></input><br><br>
+                            Horizontal Distance: <input id="horizontalEllipse" type="number" step="any"></input><br><br>
+                            Vertical Distance: <input id="verticalEllipse" type="number" step="any"></input><br><br>
+                            <input type="submit" onclick="getEllipseInputs()"></input>
+						</div>
+				</div>
+				<div id="parabola" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Parabola</button>
+						<div name="inputLabels" class="padtop hidediv">
+							Vertex<br>
+							X: <input id="xParabola" type="number" step="any"></input><br><br>
+							Y: <input id="yParabola" type="number" step="any"></input><br><br>
+							Magnitude: <input type="number" step="any"></input><br><br>
+                        <form id="test" name="test">
+							Orientation: <input type="radio" name="parabolaOrientation" value="horizontal" checked>Horizontal
+										 <input type="radio" name="parabolaOrientation" value="vertical">Vertical
+                        </form>
+						<input type="submit" onclick="getParabolaInputs()"></input>                
+						</div>
+				</div>
+				<div id="hyperbola" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Hyperbola</button>
+						<div name="inputLabels" class="padtop hidediv">
+							Center X coordinate: <input id="xHyperbola" type="number" step="any"></input><br><br>
+							Center Y coordinate: <input id="yHyperbola" type="number" step="any"></input><br><br>
+							Horizontal Distancce: <input id="horizontalHyperbola" type="number" step="any"></input><br><br>
+							Vertical Distance: <input id="verticalHyperbola" type="number" step="any"></input><br><br>
+						<input type="submit" onclick="getHyperbolaInputs()"></input>
+						</div>
+				</div>
+				<div id="polygon" class="padtop">
+					<button name="inputButtons" class="categoryLabel">Polygon</button>
+						<div name="inputLabels" class="padtop hidediv">
+                            <div id="polygonVertices">
+                                Vertices<br>
+                                X1: <input id="x1" type="number" step="any"></input><br><br>
+                                Y1: <input id="y1" type="number" step="any"></input><br><br>
+                                X2: <input id="x2" type="number" step="any"></input><br><br>
+                                Y2: <input id="y2" type="number" step="any"></input><br><br>
+                                X3: <input id="x3" type="number" step="any"></input><br><br>
+                                Y3: <input id="y3" type="number" step="any"></input><br><br>
+                            </div>
+                            <input type="button" id="addVertex" value="Add a Vertex"></input>
+                            <input type="button" id="removeVertex" value="Remove a Vertex"></input>
+                            <input type="submit" onclick="getPolygonInputs()"></input>
+                        </div>
+				</div>
+			</div>
+			
+			<div class ="center">
+				<div id="translate" class="padtop hidediv">
+					<button id="translateBtn" name="transformButtons" class="categoryLabel">Translate</button>
+					<div id="translateInputs" name="transformLabels" class="padtop hidediv">
+						Add:<br>
+						X: <input id="xTrans" type="number" step="any"></input><br><br>
+						Y: <input id="yTrans" type="number" step="any"></input><br><br>
+						<input type="submit"></input>
+					</div>
+				</div>
+				<div id="rotate" class="padtop hidediv">
+					<button id="rotateBtn" name="transformButtons" class="categoryLabel">Rotate</button>
+					<div id="rotate" name="transformLabels" class="padtop hidediv">
+						<form>
+							<input type="radio" value="90clockwise" checked>90 degrees clockwise<br><br>
+							<input type="radio" value="90counter">90 degrees counter clockwise<br><br>
+							<input type="radio" value="180">180 degrees<br><br>
+							<input type="submit"></input>
+						</form>
+					</div>
+				</div>
+				<div id="scale" class="padtop hidediv">
+					<button id="scaleBtn" name="transformButtons" class="categoryLabel">Scale</button>
+					<div id="scaleInputs" name="transformLabels" class="padtop hidediv">
+						Scale: <input id="numScale" type="number" step="any"></input><br><br>
+						<input type="submit"></input>
+					</div>
+				</div>
+				<div id="reflect" class="padtop hidediv">
+					<button id="reflectBtn" name="transformButtons" class="categoryLabel">Reflect</button>
+					<div id="reflectInputs" name="transformLabels" class="padtop hidediv">
+						<form>
+							<input type="radio" value="xaxis">X-axis<br><br>
+							<input type="radio" value="yaxis">Y-axis<br><br>
+							<input type="submit"></input>
+						</form>
+					</div>
+				</div>
+                <div id="shear" class="padtop hidediv">
+                    <button id="shearBtn" name="transformButtons" class="categoryLabel">Shear</button>
+					<div id="shearInputs" name="transformLabels" class="padtop hidediv">
+                        X: <input type="number" step="any"></input><br><br>
+                        Y: <input type="number" step="any"></input><br><br>
+                        <input type="submit"></input>
+					</div>
+                </div>
+			</div>
+			<div class ="right">
+				<div id="jxgbox" class="jxgbox" style="width: 400px; height: 400px;"></div>
+				<div>
+					<p id="origformula" style="text-align:center"></p>
+					<p id="changedformula" style="text-align:center"></p>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="draw.js"></script>
+		<script type="text/javascript" src="transform.js"></script>
+		<script type="text/javascript" src="control.js"></script>
+
+	</body>
+</html>
