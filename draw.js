@@ -91,12 +91,20 @@ function assignVertexY(k){
 	}
 }
 
-function createParabola(x1,y1,x2,y2,fx,fy, color){
-	var p1 = board.create('point', [x1,y1]);
-	var p2= board.create('point', [x2,y2]);
-	var line = board.create('line', [p1,p2]);
-	var	foci = board.create('point', [fx,fy]);
-	var par = board.create('parabola',[foci,line], {fixed:true, fillColor: color, strokeColor: color} );
+function createParabola(vx, vy, magnitude, orientation, color){
+	if(orientation == "vertical"){
+		var p1 = board.create('point', [10, vy - magnitude]);
+		var p2= board.create('point', [-10, vy - magnitude]);
+		var line = board.create('line', [p1,p2]);
+		var	foci = board.create('point', [vx,vy + magnitude]);
+	}
+	else if(orientation == "horizontal"){
+		var p1 = board.create('point', [vx - magnitude, 10]);
+		var p2= board.create('point', [vx - magnitude, -10]);
+		var line = board.create('line', [p1,p2]);
+		var	foci = board.create('point', [vx + magnitude,vy]);
+	}
+		board.create('parabola',[foci,line], {fixed:true, strokeColor:color});
 }
 // strokeColor:JXG.hsv2rgb(11*360/25,1,1)
 // createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
