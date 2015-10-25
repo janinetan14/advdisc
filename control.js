@@ -36,6 +36,7 @@ var counter;
 function getPointInputs(){
 	var x = parseFloat(document.getElementById("xPoint").value);
 	var y = parseFloat(document.getElementById("yPoint").value);
+	printMatrix([{"x":x, "y":y}], "origformula");
 	createPoint(x,y, "blue");
 	$("#translate").show();
 }
@@ -45,6 +46,7 @@ function getLineSegmentInputs(){
 	var y = parseFloat(document.getElementById("yLinesegment").value);
 	var x1 = parseFloat(document.getElementById("x1Linesegment").value);
 	var y1 = parseFloat(document.getElementById("y1Linesegment").value);
+	printMatrix([{"x":x, "y":y}, {"x":x1, "y":y1}], "origformula");
 	createSegment(x,y,x1,y1, "blue");
 }
 
@@ -53,8 +55,8 @@ function getVectorInputs(){
 	var y = parseFloat(document.getElementById("yVector").value);
 	var x1 = parseFloat(document.getElementById("x1Vector").value);
 	var y1 = parseFloat(document.getElementById("y1Vector").value);
+	printMatrix([{"x":x, "y":y}, {"x":x1, "y":y1}], "origformula");
 	createVector(x,y,x1,y1, "blue");
-	createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
 }
 
 function getEllipseInputs(){
@@ -63,7 +65,7 @@ function getEllipseInputs(){
 	var horizontal = parseFloat(document.getElementById("horizontalEllipse").value);
 	var vertical = parseFloat(document.getElementById("verticalEllipse").value);
 	var ellipseSpecs = createEllipse({"x": xValue, "y": yValue}, horizontal, vertical, "blue");
-	ellipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
+	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
 }
 
 function getParabolaInputs(){
@@ -83,4 +85,5 @@ function getPolygonInputs(){
 		$('#x' + i).val();
 		$('#y' + i).val();
 	}
+	createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
 }

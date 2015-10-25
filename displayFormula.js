@@ -1,9 +1,20 @@
-function ellipseGeneralForm(h, k, horizontal, vertical, formulaLabel){
+function printEllipseGeneralForm(h, k, horizontal, vertical, formulaLabel){
 	var math = document.getElementById(formulaLabel);
 	var xTerm, yTerm;
 	yTerm = '\\frac{'+assignVertexY(k)+'^2}{'+vertical+'^2}';
 	xTerm = '\\frac{'+assignVertexX(h)+'^2}{'+horizontal+'^2}';
 	math.innerHTML = '\\[' + xTerm + '+' + yTerm +'=1\\]';
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub,formulaLabel]);
+}
+
+function printMatrix(points, formulaLabel){
+	var math = document.getElementById(formulaLabel);
+	var matrixContent = '$$\\begin{bmatrix}';
+	for (var i = 0; i < points.length; i++){
+		matrixContent += points[i].x + " & " + points[i].y + '\\\\';
+	}
+	matrixContent += '\\end{bmatrix}$$'
+	math.innerHTML = matrixContent ;
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,formulaLabel]);
 }
 
