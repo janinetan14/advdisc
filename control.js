@@ -147,7 +147,18 @@ function getTranslateInputs(){
 		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
 }
-
+function getScaleInputs(){
+    var numScale = parseFloat(document.getElementById("numScale").value);
+    switch(submitted){
+		case 0: break;
+		case 1: scaleSegment(xLine,yLine,x1Line,y1Line,numScale); break;
+		case 2: scaleVector(xVector,yVector,x1Vector,y1Vector,numScale); break;
+		case 3: scaleEllipse({"x": xEllipse, "y": yEllipse}, numScale, hEllipse, vEllipse);break;
+		case 4: scaleParabola(xParabola,yParabola,numScale,mParabola,rParabola); break;
+		//case 5: translate hyperbola break;
+		case 6: scalePolygon(points,numScale); break;
+    }
+}
 function getShearInputs(){
     var xShear = parseFloat(document.getElementById("xShear").value);
     var yShear = parseFloat(document.getElementById("yShear").value);
@@ -159,5 +170,18 @@ function getShearInputs(){
 		//case 4: shear parabola break;
 		//case 5: translate hyperbola break;
 		case 6: shearPolygon(points,xShear,yShear); break;
+    }
+}
+function getReflectInputs()
+{
+    var axisReflect = document.reflectRad.reflectAxis.value;
+    switch(submitted){
+        case 0: break;
+		case 1: reflectSegment(xLine,yLine,x1Line,y1Line,axisReflect); break;
+		case 2: reflectVector(xVector,yVector,x1Vector,y1Vector,axisReflect); break;
+		case 3: reflectEllipse({"x": xEllipse, "y": yEllipse}, axisReflect, hEllipse, vEllipse);break;
+		case 4: reflectParabola(xParabola,yParabola,axisReflect,mParabola,rParabola); break;
+		//case 5: translate hyperbola break;
+		case 6: reflectPolygon(points,axisReflect); break;
     }
 }
