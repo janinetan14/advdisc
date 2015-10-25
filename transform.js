@@ -149,14 +149,46 @@ function reflectParabola(vx, vy, axis, magnitude, orientation){
 	}
 }
 
-function translateEllipse(){
+function translateEllipse(center, tx, ty, horizontal, vertical){
+	center.x = center.x + tx;
+	center.y =  center.y + ty;
+	createEllipse(center, horizontal, vertical, "aquamarine");
 }
 
-function rotateEllipse(){
+function rotateEllipse(center, degree, horizontal, vertical){
+	if(degree == 90)
+	{
+		var temp = center.x;
+		center.x = center.y * -1;
+		center.y = temp;
+		createEllipse(center, vertical, horizontal, "aquamarine");
+	}
+	else if( degree == 270)
+	{
+		var temp = center.x * -1;
+		center.x = center.y;
+		center.y = temp;
+		createEllipse(center, vertical, horizontal, "aquamarine");
+	}
+	else if(degree == 180)
+	{
+		center.x = center.x * -1;
+		center.y = center.y * -1;
+		createEllipse(center, vertical, horizontal, "aquamarine");
+	}
+	
 }
 
-function scaleEllipse(){
+function scaleEllipse(center, scalar, horizontal, vertical){
+	horizontal = horizontal * (Math.pow(scalar, 2));
+	vertical = vertical * (Math.pow(scalar, 2));
+	createEllipse(center, horizontal, vertical, "aquamarine");
 }
 
-function reflectEllipse(){
+function reflectEllipse(center, axis, horizontal, vertical){
+	if( axis == "y")
+		center.x = center.x * -1;
+	else if( axis == "x")
+		center.y = center.y * -1;
+	createEllipse(center, horizontal, vertical, "aquamarine");	
 }
