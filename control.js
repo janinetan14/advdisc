@@ -35,7 +35,7 @@ var submitted; // 0-point, 1-line, 2- vector, 3-ellipse, 4-parabola, 5-hyperbola
 })();
 	
 function getPointInputs(){
-	initBoard();
+	initboard();
     xPoint = document.getElementById("xPoint").value;
     yPoint = document.getElementById("yPoint").value;
     printMatrix([{"x":xPoint, "y":yPoint}], "origformula");
@@ -46,7 +46,7 @@ function getPointInputs(){
 }
  
 function getLineSegmentInputs(){
-	initBoard();
+	initboard();
 	xLine = parseFloat(document.getElementById("xLinesegment").value);
 	yLine = parseFloat(document.getElementById("yLinesegment").value);
 	x1Line = parseFloat(document.getElementById("x1Linesegment").value);
@@ -63,7 +63,7 @@ function getLineSegmentInputs(){
 }
  
 function getVectorInputs(){
-	initBoard();
+	initboard();
 	xVector = parseFloat(document.getElementById("xVector").value);
 	yVector = parseFloat(document.getElementById("yVector").value);
 	x1Vector = parseFloat(document.getElementById("x1Vector").value);
@@ -80,7 +80,7 @@ function getVectorInputs(){
 }
  
 function getEllipseInputs(){
-	initBoard();
+	initboard();
 	xEllipse = parseFloat(document.getElementById("xEllipse").value);
 	yEllipse = parseFloat(document.getElementById("yEllipse").value);
 	hEllipse = parseFloat(document.getElementById("horizontalEllipse").value);
@@ -96,7 +96,7 @@ function getEllipseInputs(){
 }
  
 function getParabolaInputs(){
-	initBoard();
+	initboard();
 	xParabola = parseFloat(document.getElementById("xParabola").value);
 	yParabola = parseFloat(document.getElementById("yParabola").value);
     mParabola = parseFloat(document.getElementById("magnitude").value);
@@ -112,7 +112,7 @@ function getParabolaInputs(){
 }
 
 function getHyperbolaInputs(){
-	initBoard();
+	initboard();
 	xHyperbola = parseFloat(document.getElementById("xHyperbola").value);
 	yHyperbola = parseFloat(document.getElementById("yHyperbola").value);
 	hHyperbola = parseFloat(document.getElementById("horizontalHyperbola").value);
@@ -127,7 +127,7 @@ function getHyperbolaInputs(){
 }
 
 function getPolygonInputs(){
-	initBoard();
+	initboard();
 	points = [];
 	for ( var i=1; i < counter; i++ ){
 		points.push({"x": parseFloat($('#x' + i).val()), "y": parseFloat($('#y' + i).val())});
@@ -155,6 +155,7 @@ function getTranslateInputs(){
 		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
 }
+
 function getScaleInputs(){
     var numScale = parseFloat(document.getElementById("numScale").value);
     switch(submitted){
@@ -167,6 +168,7 @@ function getScaleInputs(){
 		case 6: scalePolygon(points,numScale); break;
     }
 }
+
 function getShearInputs(){
     var xShear = parseFloat(document.getElementById("xShear").value);
     var yShear = parseFloat(document.getElementById("yShear").value);
@@ -180,9 +182,9 @@ function getShearInputs(){
 		case 6: shearPolygon(points,xShear,yShear); break;
     }
 }
-function getReflectInputs()
-{
-    var axisReflect = document.reflectRad.reflectAxis.value;
+
+function getReflectInputs(){
+    var axisReflect = $('input:radio[name=reflectAxis]:checked').val();
     switch(submitted){
         case 0: break;
 		case 1: reflectSegment(xLine,yLine,x1Line,y1Line,axisReflect); break;
@@ -191,5 +193,18 @@ function getReflectInputs()
 		case 4: reflectParabola(xParabola,yParabola,axisReflect,mParabola,rParabola); break;
 		//case 5: translate hyperbola break;
 		case 6: reflectPolygon(points,axisReflect); break;
+    }
+}
+
+function getRotateInputs(){
+	var rotationAngle = parseFloat($('input:radio[name="rotationAngle"]:checked').val());
+	switch(submitted){
+        case 0: break;
+		case 1: rotateSegment(xLine,yLine,x1Line,y1Line,rotationAngle); break;
+		case 2: rotateVector(xVector,yVector,x1Vector,y1Vector,rotationAngle); break;
+		case 3: rotateEllipse({"x": xEllipse, "y": yEllipse}, rotationAngle, hEllipse, vEllipse);break;
+		case 4: rotateParabola(xParabola,yParabola,rotationAngle,mParabola,rParabola); break;
+		//case 5: translate hyperbola break;
+		case 6: rotatePolygon(points,rotationAngle); break;
     }
 }

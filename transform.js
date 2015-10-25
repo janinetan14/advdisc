@@ -14,11 +14,11 @@ function scaleSegment(x1, y1, x2, y2, scalar){
 }
 
 function reflectSegment(x1, y1, x2, y2, axis){
-	if(axis == "x"){
+	if(axis == "y"){
 		x1 = x1*-1;
 		x2 = x2*-1;
 	}
-	else if(axis == "y"){
+	else if(axis == "x"){
 		y1 = y1*-1;
 		y2 = y2*-1;	
 	}
@@ -55,11 +55,11 @@ function scaleVector(x1, y1, x2, y2, scalar){
 }
 
 function reflectVector(x1, y1, x2, y2, axis){
-	if(axis == "x"){
+	if(axis == "y"){
 		x1 = x1*-1;
 		x2 = x2*-1;
 	}
-	else if(axis == "y"){
+	else if(axis == "x"){
 		y1 = y1*-1;
 		y2 = y2*-1;	
 	}
@@ -106,9 +106,9 @@ function scalePolygon(points, scalar){
 function reflectPolygon(points, axis){
 	var pts = [];
 	for ( var i = 0; i < points.length; i++){
-		if(axis == "x")
+		if(axis == "y")
 			pts[i] = {"x": points[i].x * -1, "y": points[i].y};
-		else if(axis == "y")
+		else if(axis == "x")
 			pts[i] = {"x": points[i].x, "y" : points[i].y * -1};
 	}
 	createPolygon(pts, "aquamarine");
@@ -144,6 +144,7 @@ function scaleHyperbola(){
 
 function reflectHyperbola(){
 }
+
 function translateParabola(vx, vy, tx, ty, magnitude, orientation){
 	createParabola(vx + tx, vy + ty, magnitude, orientation, "aquamarine");
 }

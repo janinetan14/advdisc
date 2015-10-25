@@ -1,19 +1,18 @@
 var board;
 
 (function() {
-	initBoard();
+	initboard();
 })();
 
-// instantiation of graph board
-function initBoard(){
+function initboard(){
 	board = JXG.JSXGraph.initBoard('jxgbox', {
-			boundingbox: [-5, 5, 5, -5],
-			keepaspectreatio: true,
-			axis:true,
-			grid: true,
-			showCopyright: false
-		});
-	document.getElementById("changedformula").innerHTML = '';
+		boundingbox: [-5, 5, 5, -5],
+		keepaspectreatio: true,
+		axis:true,
+		grid: true,
+		showCopyright: false
+	});
+	document.getElementById("changedformula").innerHTML = "";
 }
 
 // float x, float y, string color
@@ -39,7 +38,7 @@ function createPolygon(points, color){
 	for ( var i = 0; i < points.length; i++){
 		pts[i] = createPoint(points[i].x, points[i].y, color);
 	}
-	board.create('polygon', pts, {fillColor:color, gradient:'radial', gradientsecondcolor:'white', gradientSecondOpacity:'0'});
+	board.create('polygon', pts, {strokeColor: color, fillColor:color, gradient:'radial', gradientsecondcolor:'white', gradientSecondOpacity:'0'});
 }
 
 // Point center, float horizontal, float vertical, string color
