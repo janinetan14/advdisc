@@ -81,7 +81,7 @@
 							Vertex<br>
 							X: <input id="xParabola" type="number" step="any"></input><br><br>
 							Y: <input id="yParabola" type="number" step="any"></input><br><br>
-							Magnitude: <input type="number" step="any"></input><br><br>
+							Magnitude: <input id="magnitude" type="number" step="any"></input><br><br>
                         <form id="parabolaRad" name="parabolaRad">
 							Orientation: <input type="radio" name="parabolaOrientation" value="horizontal" checked>Horizontal
 										 <input type="radio" name="parabolaOrientation" value="vertical">Vertical
@@ -129,7 +129,7 @@
                         Add:<br>
                         X: <input id="xTrans" type="number" step="any"></input><br><br>
                         Y: <input id="yTrans" type="number" step="any"></input><br><br>
-                        <input type="submit"></input>
+                        <input type="submit" onclick="getTranslateInputs()"></input>
                     </div>
                 </div>
                 <div id="rotate" name="transform" class="padtop hidediv">
@@ -169,12 +169,14 @@
                     </div>
                 </div>
             </div>
+			<div class="right">
+				<div>CURRENT OBJECT</div>
+				<p id="origformula" style="text-align:center"></p>
+				<div>TRANSLATED OBJECT</div>
+				<p id="changedformula" style="text-align:center"></p>
+			</div>
             <div class ="right">
                 <div id="jxgbox" class="jxgbox" style="width: 400px; height: 400px;"></div>
-                <div>
-                    <p id="origformula" style="text-align:center"></p>
-                    <p id="changedformula" style="text-align:center"></p>
-                </div>
             </div>
         </div>
 		<script type="text/javascript" src="draw.js"></script>
