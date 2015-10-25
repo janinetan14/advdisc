@@ -92,11 +92,12 @@ function getEllipseInputs(){
 }
  
 function getParabolaInputs(){
-	xParabola = parseFloat(document.getElementById("xEllipse").value);
-	yParabola = parseFloat(document.getElementById("yEllipse").value);
+	xParabola = parseFloat(document.getElementById("xParabola").value);
+	yParabola = parseFloat(document.getElementById("yParabola").value);
     mParabola = parseFloat(document.getElementById("magnitude").value);
 	rParabola = document.parabolaRad.parabolaOrientation.value;
     createParabola(xParabola,yParabola,mParabola,rParabola,"blue");
+	printParabolaGeneralForm(xParabola,yParabola,mParabola,rParabola, "origformula");
     $("[name='transform']").hide();
     $("#translate").show();
     $("#rotate").show();//static rotate only

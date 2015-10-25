@@ -11,7 +11,7 @@ var board;
 })();
 
 // float x, float y, string color
-function createPoint(x, y, color){
+function createPoint(x, y, color){ 
 	return board.create('point', [x,y], {fixed:true, fillColor: color, strokeColor: color});
 }
 
@@ -57,16 +57,16 @@ function createEllipse(center, horizontal, vertical, color){
 // int vx, int vy, int magnitude, string orientation, string color
 function createParabola(vx, vy, magnitude, orientation, color){
 	if(orientation == "vertical"){
-		var p1 = board.create('point', [10, vy - magnitude]);
-		var p2= board.create('point', [-10, vy - magnitude]);
+		var p1 = createPoint(1000, vy - magnitude, color);
+		var p2 = createPoint(-1000, vy - magnitude, color);
 		var line = board.create('line', [p1,p2]);
-		var	foci = board.create('point', [vx,vy + magnitude]);
+		var	foci = createPoint(vx,vy + magnitude, color);
 	}
 	else if(orientation == "horizontal"){
-		var p1 = board.create('point', [vx - magnitude, 10]);
-		var p2= board.create('point', [vx - magnitude, -10]);
-		var line = board.create('line', [p1,p2]);
-		var	foci = board.create('point', [vx + magnitude,vy]);
+		var p1 = createPoint(vx - magnitude, 1000, color);
+		var p2 = createPoint(vx - magnitude, -1000, color);
+		var line = board.create('line', [p1,p2], {fixed:true});
+		var	foci = createPoint(vx + magnitude,vy, color);
 	}
 	board.create('parabola',[foci,line], {fixed:true, strokeColor:color});
 }

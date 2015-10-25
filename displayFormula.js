@@ -7,6 +7,20 @@ function printEllipseGeneralForm(h, k, horizontal, vertical, formulaLabel){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,formulaLabel]);
 }
 
+function printParabolaGeneralForm(h, k, p, orientation, formulaLabel){
+	var math = document.getElementById(formulaLabel);
+	var xTerm, yTerm;
+	xTerm = assignVertexX(h);
+	yTerm = assignVertexY(k);
+	if (orientation == "vertical"){
+		math.innerHTML = '\\['+yTerm+ '=' + 4*p + xTerm + '^2\\]';
+	}
+	else if (orientation == "horizontal"){
+		math.innerHTML = '\\['+xTerm+ '=' + 4*p + yTerm + '^2\\]';
+	}
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub,formulaLabel]);
+}
+
 function printMatrix(points, formulaLabel){
 	var math = document.getElementById(formulaLabel);
 	var matrixContent = '$$\\begin{bmatrix}';
