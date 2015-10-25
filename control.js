@@ -1,3 +1,4 @@
+var counter;
 (function() {
 	
 	$("[name='inputButtons']").click(function(){
@@ -9,39 +10,27 @@
 		$("[name='transformLabels']").hide();
 		$($(this).parent()).children("[name='transformLabels']").toggle();
 	});
-	
-	var counter = 4;
+	counter = 4;
 	
 	$("#addVertex").click(function () {
-	
-	var newTextBoxDiv = $(document.createElement('div'))
-	 .attr("id", 'polygonInputs' + counter);
-			
-	newTextBoxDiv.after().html('<label id="X' + counter + '">X'+ counter + ' : </label>' +
-		  '<input type="number" step="any" id="x' + counter + '" value="" ><br><br><label  id="Y' + counter + '">Y'+ counter + ' : </label>' +
-		  '<input type="number" step="any" id="y' + counter + '" value="" ><br><br>');
-	counter++;
-	newTextBoxDiv.appendTo("#polygonVertices");
-	 });
+		var newTextBoxDiv = $(document.createElement('div'))
+		 .attr("id", 'polygonInputs' + counter);
+				
+		newTextBoxDiv.after().html('<label id="X' + counter + '">X'+ counter + ' : </label>' +
+			  '<input type="number" step="any" id="x' + counter + '" value="" ><br><br><label  id="Y' + counter + '">Y'+ counter + ' : </label>' +
+			  '<input type="number" step="any" id="y' + counter + '" value="" ><br><br>');
+		counter++;
+		newTextBoxDiv.appendTo("#polygonVertices");
+	});
 
-	 $("#removeVertex").click(function () {
-	if(counter==4){
-		  alert("Minimum of 3 vertices");
-		  return false;
-	   }   
-
-	counter--;
+	$("#removeVertex").click(function () {
+		if(counter==4){
+			alert("Minimum of 3 vertices");
+			return false;
+		}   
+		counter--;
 		$("#polygonInputs" + counter).remove();
-	 });
-
-	function getPolygonInputs() 
-	{
-		for(i=1; i<counter; i++)
-		{
-			$('#x' + i).val();
-			$('#y' + i).val();
-		}
-	}
+	});
 })();
 	
 function getPointInputs(){
@@ -88,3 +77,10 @@ function getHyperbolaInputs(){
 	var yValue = parseFloat(document.getElementById("yHyperbola").value);
 }
 
+function getPolygonInputs(){
+	for ( var i=1; i < counter; i++ )
+	{
+		$('#x' + i).val();
+		$('#y' + i).val();
+	}
+}

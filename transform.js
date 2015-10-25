@@ -116,5 +116,3 @@ function scaleEllipse(){
 
 function reflectEllipse(){
 }
-
-
