@@ -87,3 +87,4 @@ function getHyperbolaInputs(){
 	var xValue = parseFloat(document.getElementById("xHyperbola").value);
 	var yValue = parseFloat(document.getElementById("yHyperbola").value);
 }
+
