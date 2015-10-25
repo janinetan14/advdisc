@@ -1,4 +1,5 @@
 var board;
+// instantiation of graph board
 (function() {
 	board = JXG.JSXGraph.initBoard('jxgbox', {
 			boundingbox: [-5, 5, 5, -5],
@@ -9,19 +10,19 @@ var board;
 		});
 })();
 
-// float x, float y
+// float x, float y, string color
 function createPoint(x, y, color){
 	return board.create('point', [x,y], {fixed:true, fillColor: color, strokeColor: color});
 }
 
-// float x1, float y1, float x2, float y2
+// float x1, float y1, float x2, float y2, string color
 function createSegment(x1, y1, x2, y2, color){
 	var p1 = createPoint(x1, y1, color);
 	var p2 = createPoint(x2, y2, color);
 	board.create('segment', [p1, p2], {fixed:true, fillColor: color, strokeColor: color});
 }
 
-// float tailX, float tailY, float headX, float headY
+// float tailX, float tailY, float headX, float headY, string color
 function createVector(tailX, tailY, headX, headY, color){
 	var v = board.create('segment', [[tailX, tailY], [headX, headY]], {lastarrow: true, fixed:true, fillColor: color, strokeColor: color});
 }
@@ -53,6 +54,7 @@ function createEllipse(center, horizontal, vertical, color){
 	return {"center": center, "horizontal": horizontal/2, "vertical": vertical/2};
 }
 
+// int vx, int vy, int magnitude, string orientation, string color
 function createParabola(vx, vy, magnitude, orientation, color){
 	if(orientation == "vertical"){
 		var p1 = board.create('point', [10, vy - magnitude]);
@@ -66,7 +68,5 @@ function createParabola(vx, vy, magnitude, orientation, color){
 		var line = board.create('line', [p1,p2]);
 		var	foci = board.create('point', [vx + magnitude,vy]);
 	}
-		board.create('parabola',[foci,line], {fixed:true, strokeColor:color});
+	board.create('parabola',[foci,line], {fixed:true, strokeColor:color});
 }
-// strokeColor:JXG.hsv2rgb(11*360/25,1,1)
-// createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);

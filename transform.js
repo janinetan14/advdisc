@@ -1,13 +1,16 @@
 function translatePoint(x, y, tx, ty){
 	createPoint(x+tx,y+ty,"aquamarine");
+	printMatrix([{"x":x+tx, "y":y+ty}], "changedformula");
 }
 
 function translateSegement(x1, y1, x2, y2, tx, ty){
 	createSegment(x1+tx, y1+ty, x2+tx, y2+ty, "aquamarine");
+	printMatrix([{"x":x1+tx, "y":y1+ty},{"x":x2+tx, "y":y2+ty}], "changedformula");
 }
 
 function scaleSegment(x1, y1, x2, y2, scalar){
 	createSegment(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "aquamarine");
+	printMatrix([{"x":x1*scalar, "y":y1*scalar},{"x":x2*scalar, "y":y2*scalar}], "changedformula");
 }
 
 function reflectSegment(x1, y1, x2, y2, axis){
@@ -20,6 +23,7 @@ function reflectSegment(x1, y1, x2, y2, axis){
 		y2 = y2*-1;	
 	}
 	createSegment(x1, y1, x2, y2, "aquamarine");
+	printMatrix([{"x":x1, "y":y1},{"x":x2, "y":y2}], "changedformula");
 }
 
 function rotateSegment(x1, y1, x2, y2, degree){
@@ -28,6 +32,7 @@ function rotateSegment(x1, y1, x2, y2, degree){
 	newx2 = x2*Math.cos(degree * Math.PI/180) - y2*Math.sin(degree * Math.PI/180);
 	newy2 = x2*Math.sin(degree * Math.PI/180) + y2*Math.cos(degree * Math.PI/180);
 	createSegment(newx1, newy1, newx2, newy2, "aquamarine");
+	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
 function shearSegment(x1, y1, x2, y2, sx, sy){
@@ -36,6 +41,7 @@ function shearSegment(x1, y1, x2, y2, sx, sy){
 	newx2 = x2 + sx*y2;
 	newy2 = y2 + sy*x2;
 	createSegment(newx1, newy1, newx2, newy2, "aquamarine");
+	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
 function translatePolygon(points,tx,ty){
@@ -44,6 +50,7 @@ function translatePolygon(points,tx,ty){
 		pts[i] = {"x": points[i].x + tx, "y": points[i].y + ty};
 	}
 	createPolygon(pts, "aquamarine");
+	printMatrix(pts, "changedformula");
 }
 
 function scalePolygon(points, scalar){
@@ -52,6 +59,7 @@ function scalePolygon(points, scalar){
 		pts[i] = {"x": points[i].x *scalar, "y": points[i].y *scalar};
 	}
 	createPolygon(pts, "aquamarine");
+	printMatrix(pts, "changedformula");
 }
 
 function reflectPolygon(points, axis){
@@ -63,6 +71,7 @@ function reflectPolygon(points, axis){
 			pts[i] = {"x": points[i].x, "y" : points[i].y * -1};
 	}
 	createPolygon(pts, "aquamarine");
+	printMatrix(pts, "changedformula");
 }
 
 function rotatePolygon(points, degree){
@@ -71,6 +80,7 @@ function rotatePolygon(points, degree){
 		pts[i] =  {"x":points[i].x * Math.cos(degree * Math.PI/180) - points[i].y * Math.sin(degree * Math.PI/180),"y":points[i].x * Math.sin(degree * Math.PI/180) + points[i].y * Math.cos(degree * Math.PI/180)};
 	}
 	createPolygon(pts, "aquamarine");
+	printMatrix(pts, "changedformula");
 }
 
 function shearPolygon(points, sx, sy){
@@ -79,6 +89,7 @@ function shearPolygon(points, sx, sy){
 		pts[i] =  {"x": points[i].x + sx * points[i].y ,"y": points[i].y + sy * points[i].x};
 	}
 	createPolygon(pts,"aquamarine");
+	printMatrix(pts, "changedformula");
 }
 
 function translayeHyperbola(){
