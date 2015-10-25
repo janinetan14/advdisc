@@ -68,18 +68,16 @@ function reflectPolygon(points, axis){
 function rotatePolygon(points, degree){
 	var pts = [];
 	for ( var i = 0; i < points.length; i++){
-		pts[i].x =  points[i].x*Math.cos(degree * Math.PI/180) - points[i].y*Math.sin(degree * Math.PI/180);
-		pts[i].y = points[i].x*Math.sin(degree * Math.PI/180) + points[i].y*Math.cos(degree * Math.PI/180);
-		alert(pts[i].x);
+		pts[i] =  {"x":points[i].x * Math.cos(degree * Math.PI/180) - points[i].y * Math.sin(degree * Math.PI/180),"y":points[i].x * Math.sin(degree * Math.PI/180) + points[i].y * Math.cos(degree * Math.PI/180)};
 	}
 	createPolygon(pts, "aquamarine");
 }
 
 function shearPolygon(points, sx, sy){
-
-	newx1 = x1 + sx*y1;
-	newy1 = y1 + sy*x1;
-	newx2 = x2 + sx*y2;
-	newy2 = y2 + sy*x2;
+	var pts = []; 
+	for ( var i = 0; i < points.length; i++){
+		pts[i] =  {"x": points[i].x + sx * points[i].y ,"y": points[i].y + sy * points[i].x};
+	}
+	createPolygon(pts,"aquamarine");
 }
 
