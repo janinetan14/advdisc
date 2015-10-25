@@ -147,6 +147,18 @@ function getTranslateInputs(){
 		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
 }
+function getShearInputs()
+{
+    var xShear = parseFloat(document.getElementById("xShear").value);
+    var yShear = parseFloat(document.getElementById("yShear").value);
+    switch(submitted)
+        case 1:shearSegement(xLine,yLine,x1Line,y1Line,xShear,yShear);break;
+        case 2:shearVector(xVector,yVector,x1Vector,y1Vector,xShear,yShear);break;
+        case 3:break;
+        case 4:break;
+        case 5:break;
+        case 6:shearPolygon(points,xShear,yShear);break;
+}
 
 function getShearInputs(){
     var xShear = parseFloat(document.getElementById("xShear").value);
