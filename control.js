@@ -48,8 +48,6 @@ function getPointInputs(){
 	var x = document.getElementById("xPoint").value;
 	var y = document.getElementById("yPoint").value;
 	createPoint(x,y, "blue");
-	reflectPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}],"x");
-	rotatePolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}],90);
 	$("#translate").show();
 }
 

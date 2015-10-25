@@ -81,3 +81,40 @@ function shearPolygon(points, sx, sy){
 	createPolygon(pts,"aquamarine");
 }
 
+function translayeHyperbola(){
+}
+
+function rotateHyperbola(){
+}
+
+function scaleHyperbola(){
+}
+
+function reflectHyperbola(){
+}
+
+function translateParabola(){
+}
+
+function rotateParabola(){
+}
+
+function scaleParabola(){
+}
+
+function reflectParabola(){
+}
+
+function translateEllipse(){
+}
+
+function rotateEllipse(){
+}
+
+function scaleEllipse(){
+}
+
+function reflectEllipse(){
+}
+
+
