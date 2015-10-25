@@ -223,8 +223,8 @@ function rotateEllipse(center, degree, horizontal, vertical){
 }
 
 function scaleEllipse(center, scalar, horizontal, vertical){
-	horizontal = horizontal * (Math.pow(scalar, 2));
-	vertical = vertical * (Math.pow(scalar, 2));
+	horizontal = horizontal * (scalar);
+	vertical = vertical * (scalar);
 	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
