@@ -73,7 +73,7 @@ function getEllipseInputs(){
 	var yValue = parseFloat(document.getElementById("yEllipse").value);
 	var horizontal = parseFloat(document.getElementById("horizontalEllipse").value);
 	var vertical = parseFloat(document.getElementById("verticalEllipse").value);
-	createEllipse({"x": xValue, "y": yValue}, horizontal, vertical, "blue");
+	var ellipseSpecs = createEllipse({"x": xValue, "y": yValue}, horizontal, vertical, "blue");
 	ellipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
 }
 

@@ -7,7 +7,6 @@ var board;
 			grid: true,
 			showCopyright: false
 		});
-		createEllipse({"x":1, "y":1}, 10, 5, "blue");
 })();
 
 // float x, float y
