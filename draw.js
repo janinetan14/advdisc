@@ -99,8 +99,8 @@ function createParabola(vx, vy, magnitude, orientation, color){
 		var	foci = board.create('point', [vx,vy + magnitude]);
 	}
 	else if(orientation == "horizontal"){
-		var p1 = board.create('point', [vy - magnitude, 10]);
-		var p2= board.create('point', [vy - magnitude, -10]);
+		var p1 = board.create('point', [vx - magnitude, 10]);
+		var p2= board.create('point', [vx - magnitude, -10]);
 		var line = board.create('line', [p1,p2]);
 		var	foci = board.create('point', [vx + magnitude,vy]);
 	}
