@@ -50,7 +50,7 @@ function createEllipse(center, horizontal, vertical, color){
 		focus1 = createPoint(center.x, center.y+c, color);
 		focus2 = createPoint(center.x, center.y-c, color);
 	}
-	var el = board.create('ellipse',[focus1, focus2, majorAxis], { fixed:true } );
+	var el = board.create('ellipse',[focus1, focus2, majorAxis], { fixed:true, strokeColor: color } );
 	return {"center": center, "horizontal": horizontal/2, "vertical": vertical/2};
 }
 

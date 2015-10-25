@@ -126,7 +126,6 @@ function getPolygonInputs(){
 	for ( var i=1; i < counter; i++ ){
 		points.push({"x": parseFloat($('#x' + i).val()), "y": parseFloat($('#y' + i).val())});
 	}
-	//createPolygon([{"x":0, "y":0},{"x":0, "y":1}, {"x":1, "y":1}, {"x":1, "y":0}]);
 	createPolygon(points, "blue");
 	printMatrix(points, "origformula");
     $("[name='transform']").hide();
@@ -136,37 +135,17 @@ function getPolygonInputs(){
     $("#reflect").show();
     submitted = 6;
 }
-function getTranslateInputs()
-{
+
+function getTranslateInputs(){
     xTrans = parseFloat(document.getElementById("xTrans").value);
     yTrans = parseFloat(document.getElementById("yTrans").value);
-    if(submitted == 0)
-    {
-        translatePoint(parseFloat(xPoint),parseFloat(yPoint),xTrans,yTrans);
+	switch(submitted){
+		case 0: translatePoint(parseFloat(xPoint),parseFloat(yPoint),xTrans,yTrans); break;
+		case 1: translateSegement(xLine,yLine,x1Line,y1Line,xTrans,yTrans); break;
+		case 2: translateVector(xVector, yVector, x1Vector, y1Vector, xTrans, yTrans); break;
+		case 3: translateEllipse({"x": xEllipse, "y": yEllipse}, xTrans, yTrans, hEllipse, vEllipse); break;
+		case 4: translateParabola(xParabola,yParabola,xTrans,yTrans,mParabola,rParabola); break;
+		//case 5: translate hyperbola break;
+		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
-    else if(submitted == 1)
-    {
-        translateSegement(xLine,yLine,x1Line,y1Line,xTrans,yTrans);
-    }
-    else if(submitted == 2)
-    {
-        //translate vector
-    }
-    else if(submitted == 3)
-    {
-        ellipse
-    }
-    else if(submitted == 4)
-    {
-        translateParabola(xParabola,yParabola,xTrans,yTrans,mParabola,rParabola);
-    }
-    else if(submitted == 5)
-    {
-        hyperbola
-    }
-    else if(submitted == 6)
-    {
-        translatePolygon(points,xTrans,yTrans);
-    }
-    
 }

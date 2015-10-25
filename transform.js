@@ -44,6 +44,47 @@ function shearSegment(x1, y1, x2, y2, sx, sy){
 	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
+function translateVector(x1, y1, x2, y2, tx, ty){
+	createVector(x1+tx, y1+ty, x2+tx, y2+ty, "aquamarine");
+	printMatrix([{"x":x1+tx, "y":y1+ty},{"x":x2+tx, "y":y2+ty}], "changedformula");
+}
+
+function scaleVector(x1, y1, x2, y2, scalar){
+	createVector(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "aquamarine");
+	printMatrix([{"x":x1*scalar, "y":y1*scalar},{"x":x2*scalar, "y":y2*scalar}], "changedformula");
+}
+
+function reflectVector(x1, y1, x2, y2, axis){
+	if(axis == "x"){
+		x1 = x1*-1;
+		x2 = x2*-1;
+	}
+	else if(axis == "y"){
+		y1 = y1*-1;
+		y2 = y2*-1;	
+	}
+	createVector(x1, y1, x2, y2, "aquamarine");
+	printMatrix([{"x":x1, "y":y1},{"x":x2, "y":y2}], "changedformula");
+}
+
+function rotateVector(x1, y1, x2, y2, degree){
+	newx1 = x1*Math.cos(degree * Math.PI/180) - y1*Math.sin(degree * Math.PI/180);
+	newy1 = x1*Math.sin(degree * Math.PI/180) + y1*Math.cos(degree * Math.PI/180);
+	newx2 = x2*Math.cos(degree * Math.PI/180) - y2*Math.sin(degree * Math.PI/180);
+	newy2 = x2*Math.sin(degree * Math.PI/180) + y2*Math.cos(degree * Math.PI/180);
+	createVector(newx1, newy1, newx2, newy2, "aquamarine");
+	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
+}
+
+function shearVector(x1, y1, x2, y2, sx, sy){
+	newx1 = x1 + sx*y1;
+	newy1 = y1 + sy*x1;
+	newx2 = x2 + sx*y2;
+	newy2 = y2 + sy*x2;
+	createVector(newx1, newy1, newx2, newy2, "aquamarine");
+	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
+}
+
 function translatePolygon(points,tx,ty){
 	var pts = [];
 	for ( var i = 0; i < points.length; i++){
