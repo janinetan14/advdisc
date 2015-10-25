@@ -3,18 +3,16 @@ var xPoint,yPoint,xLine,yLine,x1Line,y1Line,xVector,yVector,x1Vector,y1Vector,xE
 var xHyperbola,yHyperbola,hHyperbola,vHyperbola,rHyperbola, points;
 var submitted; // 0-point, 1-line, 2- vector, 3-ellipse, 4-parabola, 5-hyperbola, 6-polygon
 (function() {
-	
 	$("[name='inputButtons']").click(function(){
 		$("[name='inputLabels']").hide();
 		$($(this).parent()).children("[name='inputLabels']").toggle();
 	});
-	
 	$("[name='transformButtons']").click(function(){
 		$("[name='transformLabels']").hide();
 		$($(this).parent()).children("[name='transformLabels']").toggle();
 	});
-	counter = 4;
 	
+	counter = 4;
 	$("#addVertex").click(function () {
 		var newTextBoxDiv = $(document.createElement('div'))
 		 .attr("id", 'polygonInputs' + counter);
@@ -137,8 +135,8 @@ function getPolygonInputs(){
 }
 
 function getTranslateInputs(){
-    xTrans = parseFloat(document.getElementById("xTrans").value);
-    yTrans = parseFloat(document.getElementById("yTrans").value);
+    var xTrans = parseFloat(document.getElementById("xTrans").value);
+    var yTrans = parseFloat(document.getElementById("yTrans").value);
 	switch(submitted){
 		case 0: translatePoint(parseFloat(xPoint),parseFloat(yPoint),xTrans,yTrans); break;
 		case 1: translateSegement(xLine,yLine,x1Line,y1Line,xTrans,yTrans); break;
@@ -149,3 +147,4 @@ function getTranslateInputs(){
 		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
 }
+
