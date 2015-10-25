@@ -34,13 +34,14 @@ var counter;
 })();
 	
 function getPointInputs(){
-	var x = parseFloat(document.getElementById("xPoint").value);
-	var y = parseFloat(document.getElementById("yPoint").value);
-	printMatrix([{"x":x, "y":y}], "origformula");
+    var x = document.getElementById("xPoint").value;
+    var y = document.getElementById("yPoint").value;
+    printMatrix([{"x":x, "y":y}], "origformula");
 	createPoint(x,y, "blue");
-	$("#translate").show();
+    $("[name='transform']").hide();
+    $("#translate").show();
 }
-
+ 
 function getLineSegmentInputs(){
 	var x = parseFloat(document.getElementById("xLinesegment").value);
 	var y = parseFloat(document.getElementById("yLinesegment").value);
@@ -48,8 +49,14 @@ function getLineSegmentInputs(){
 	var y1 = parseFloat(document.getElementById("y1Linesegment").value);
 	printMatrix([{"x":x, "y":y}, {"x":x1, "y":y1}], "origformula");
 	createSegment(x,y,x1,y1, "blue");
+    $("[name='transform']").hide();
+    $("#translate").show();
+    $("#rotate").show();
+    $("#shear").show();
+    $("#scale").show();
+    $("#reflect").show();
 }
-
+ 
 function getVectorInputs(){
 	var x = parseFloat(document.getElementById("xVector").value);
 	var y = parseFloat(document.getElementById("yVector").value);
@@ -57,8 +64,14 @@ function getVectorInputs(){
 	var y1 = parseFloat(document.getElementById("y1Vector").value);
 	printMatrix([{"x":x, "y":y}, {"x":x1, "y":y1}], "origformula");
 	createVector(x,y,x1,y1, "blue");
+    $("[name='transform']").hide();
+    $("#translate").show();
+    $("#rotate").show();
+    $("#shear").show();
+    $("#scale").show();
+    $("#reflect").show();
 }
-
+ 
 function getEllipseInputs(){
 	var xValue = parseFloat(document.getElementById("xEllipse").value);
 	var yValue = parseFloat(document.getElementById("yEllipse").value);
@@ -66,17 +79,35 @@ function getEllipseInputs(){
 	var vertical = parseFloat(document.getElementById("verticalEllipse").value);
 	var ellipseSpecs = createEllipse({"x": xValue, "y": yValue}, horizontal, vertical, "blue");
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
+	$("[name='transform']").hide();
+    $("#translate").show();
+    $("#rotate").show();//static rotate only
+    $("#scale").show();
+    $("#reflect").show();
 }
-
+ 
 function getParabolaInputs(){
 	var xValue = parseFloat(document.getElementById("xEllipse").value);
 	var yValue = parseFloat(document.getElementById("yEllipse").value);
-	var radVal = document.test.parabolaOrientation.value;
+	var radVal = document.parabolaRad.parabolaOrientation.value;
+    $("[name='transform']").hide();
+    $("#translate").show();
+    $("#rotate").show();//static rotate only
+    $("#scale").show();
+    $("#reflect").show();
 }
 
 function getHyperbolaInputs(){
 	var xValue = parseFloat(document.getElementById("xHyperbola").value);
 	var yValue = parseFloat(document.getElementById("yHyperbola").value);
+	var horizontal = parseFloat(document.getElementById("horizontalHyperbola").value);
+    var vertical = parseFloat(document.getElementById("verticalHyperbola").value);
+    var radVal = parseFloat(document.hyperbolaRad.hyperbolaOrientation.value);    
+    $("[name='transform']").hide();
+    $("#translate").show();
+    $("#rotate").show();//static rotate only
+    $("#scale").show();
+    $("#reflect").show();
 }
 
 function getPolygonInputs(){

@@ -82,7 +82,7 @@
 							X: <input id="xParabola" type="number" step="any"></input><br><br>
 							Y: <input id="yParabola" type="number" step="any"></input><br><br>
 							Magnitude: <input type="number" step="any"></input><br><br>
-                        <form id="test" name="test">
+                        <form id="parabolaRad" name="parabolaRad">
 							Orientation: <input type="radio" name="parabolaOrientation" value="horizontal" checked>Horizontal
 										 <input type="radio" name="parabolaOrientation" value="vertical">Vertical
                         </form>
@@ -94,8 +94,12 @@
 						<div name="inputLabels" class="padtop hidediv">
 							Center X coordinate: <input id="xHyperbola" type="number" step="any"></input><br><br>
 							Center Y coordinate: <input id="yHyperbola" type="number" step="any"></input><br><br>
-							Horizontal Distancce: <input id="horizontalHyperbola" type="number" step="any"></input><br><br>
-							Vertical Distance: <input id="verticalHyperbola" type="number" step="any"></input><br><br>
+							Horizontal Distance: <input id="horizontalHyperbola" type="number" step="any"></input><br><br>
+                            Vertical Distance: <input id="verticalHyperbola" type="number" step="any"></input><br><br>
+                        <form id="hyperbolaRad" name="hyperbolaRad">
+                            Orientation: <input type="radio" name="parabolaOrientation" value="horizontal" checked>Horizontal
+                                         <input type="radio" name="parabolaOrientation" value="vertical">Vertical
+                        </form>
 						<input type="submit" onclick="getHyperbolaInputs()"></input>
 						</div>
 				</div>
@@ -119,60 +123,60 @@
 			</div>
 			
 			<div class ="center">
-				<div id="translate" class="padtop hidediv">
-					<button id="translateBtn" name="transformButtons" class="categoryLabel">Translate</button>
-					<div id="translateInputs" name="transformLabels" class="padtop hidediv">
-						Add:<br>
-						X: <input id="xTrans" type="number" step="any"></input><br><br>
-						Y: <input id="yTrans" type="number" step="any"></input><br><br>
-						<input type="submit"></input>
-					</div>
-				</div>
-				<div id="rotate" class="padtop hidediv">
-					<button id="rotateBtn" name="transformButtons" class="categoryLabel">Rotate</button>
-					<div id="rotate" name="transformLabels" class="padtop hidediv">
-						<form>
-							<input type="radio" value="90clockwise" checked>90 degrees clockwise<br><br>
-							<input type="radio" value="90counter">90 degrees counter clockwise<br><br>
-							<input type="radio" value="180">180 degrees<br><br>
-							<input type="submit"></input>
-						</form>
-					</div>
-				</div>
-				<div id="scale" class="padtop hidediv">
-					<button id="scaleBtn" name="transformButtons" class="categoryLabel">Scale</button>
-					<div id="scaleInputs" name="transformLabels" class="padtop hidediv">
-						Scale: <input id="numScale" type="number" step="any"></input><br><br>
-						<input type="submit"></input>
-					</div>
-				</div>
-				<div id="reflect" class="padtop hidediv">
-					<button id="reflectBtn" name="transformButtons" class="categoryLabel">Reflect</button>
-					<div id="reflectInputs" name="transformLabels" class="padtop hidediv">
-						<form>
-							<input type="radio" value="xaxis">X-axis<br><br>
-							<input type="radio" value="yaxis">Y-axis<br><br>
-							<input type="submit"></input>
-						</form>
-					</div>
-				</div>
-                <div id="shear" class="padtop hidediv">
+				<div id="translate" name="transform" class="padtop hidediv">
+                    <button id="translateBtn" name="transformButtons" class="categoryLabel">Translate</button>
+                    <div id="translateInputs" name="transformLabels" class="padtop hidediv">
+                        Add:<br>
+                        X: <input id="xTrans" type="number" step="any"></input><br><br>
+                        Y: <input id="yTrans" type="number" step="any"></input><br><br>
+                        <input type="submit"></input>
+                    </div>
+                </div>
+                <div id="rotate" name="transform" class="padtop hidediv">
+                    <button id="rotateBtn" name="transformButtons" class="categoryLabel">Rotate</button>
+                    <div id="rotate" name="transformLabels" class="padtop hidediv">
+                        <form>
+                            <input type="radio" value="90clockwise" checked>90 degrees clockwise<br><br>
+                            <input type="radio" value="90counter">90 degrees counter clockwise<br><br>
+                            <input type="radio" value="180">180 degrees<br><br>
+                            <input type="submit"></input>
+                        </form>
+                    </div>
+                </div>
+                <div id="scale" name="transform" class="padtop hidediv">
+                    <button id="scaleBtn" name="transformButtons" class="categoryLabel">Scale</button>
+                    <div id="scaleInputs" name="transformLabels" class="padtop hidediv">
+                        Scale: <input id="numScale" type="number" step="any"></input><br><br>
+                        <input type="submit"></input>
+                    </div>
+                </div>
+                <div id="reflect" name="transform" class="padtop hidediv">
+                    <button id="reflectBtn" name="transformButtons" class="categoryLabel">Reflect</button>
+                    <div id="reflectInputs" name="transformLabels" class="padtop hidediv">
+                        <form>
+                            <input type="radio" value="xaxis">X-axis<br><br>
+                            <input type="radio" value="yaxis">Y-axis<br><br>
+                            <input type="submit"></input>
+                        </form>
+                    </div>
+                </div>
+                <div id="shear" name="transform" class="padtop hidediv">
                     <button id="shearBtn" name="transformButtons" class="categoryLabel">Shear</button>
-					<div id="shearInputs" name="transformLabels" class="padtop hidediv">
+                    <div id="shearInputs" name="transformLabels" class="padtop hidediv">
                         X: <input type="number" step="any"></input><br><br>
                         Y: <input type="number" step="any"></input><br><br>
                         <input type="submit"></input>
-					</div>
+                    </div>
                 </div>
-			</div>
-			<div class ="right">
-				<div id="jxgbox" class="jxgbox" style="width: 400px; height: 400px;"></div>
-				<div>
-					<p id="origformula" style="text-align:center"></p>
-					<p id="changedformula" style="text-align:center"></p>
-				</div>
-			</div>
-		</div>
+            </div>
+            <div class ="right">
+                <div id="jxgbox" class="jxgbox" style="width: 400px; height: 400px;"></div>
+                <div>
+                    <p id="origformula" style="text-align:center"></p>
+                    <p id="changedformula" style="text-align:center"></p>
+                </div>
+            </div>
+        </div>
 		<script type="text/javascript" src="draw.js"></script>
 		<script type="text/javascript" src="transform.js"></script>
 		<script type="text/javascript" src="control.js"></script>
