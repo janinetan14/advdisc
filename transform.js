@@ -215,7 +215,7 @@ function rotateEllipse(center, degree, horizontal, vertical){
 	{
 		center.x = center.x * -1;
 		center.y = center.y * -1;
-		createEllipse(center, vertical, horizontal, "aquamarine");
+		createEllipse(center, horizontal, vertical, "aquamarine");
 	}
 	
 }
