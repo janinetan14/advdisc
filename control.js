@@ -170,7 +170,7 @@ function getScaleInputs(){
 }
 
 function getShearInputs(){
-    var angleShear = parseFloat(document.getElementById("xShear").value);
+    var angleShear = parseFloat(document.getElementById("angleShear").value);
 	switch(submitted){
 		case 0: break;
 		case 1: shearSegment(xLine,yLine,x1Line,y1Line,angleShear); break;
