@@ -35,13 +35,11 @@ function rotateSegment(x1, y1, x2, y2, degree){
 	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
-function shearSegment(x1, y1, x2, y2, sx, sy){
-	newx1 = x1 + sx*y1;
-	newy1 = y1 + sy*x1;
-	newx2 = x2 + sx*y2;
-	newy2 = y2 + sy*x2;
-	createSegment(newx1, newy1, newx2, newy2, "aquamarine");
-	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
+function shearSegment(x1, y1, x2, y2, degree){
+	newx1 = x1 + Math.tan(degree * Math.PI/180)*y1;
+	newx2 = x2 + Math.tan(degree * Math.PI/180)*y2;
+	createSegment(newx1, y1, newx2, y2, "aquamarine");
+	printMatrix([{"x":newx1, "y":y1},{"x":newx2, "y":y2}], "changedformula");
 }
 
 function translateVector(x1, y1, x2, y2, tx, ty){
@@ -76,13 +74,11 @@ function rotateVector(x1, y1, x2, y2, degree){
 	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
-function shearVector(x1, y1, x2, y2, sx, sy){
-	newx1 = x1 + sx*y1;
-	newy1 = y1 + sy*x1;
-	newx2 = x2 + sx*y2;
-	newy2 = y2 + sy*x2;
-	createVector(newx1, newy1, newx2, newy2, "aquamarine");
-	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
+function shearVector(x1, y1, x2, y2, degree){
+	newx1 = x1 + Math.tan(degree * Math.PI/180)*y1;
+	newx2 = x2 + Math.tan(degree * Math.PI/180)*y2;
+	createVector(newx1, y1, newx2, y2, "aquamarine");
+	printMatrix([{"x":newx1, "y":y1},{"x":newx2, "y":y2}], "changedformula");
 }
 
 function translatePolygon(points,tx,ty){
@@ -124,10 +120,10 @@ function rotatePolygon(points, degree){
 	printMatrix(pts, "changedformula");
 }
 
-function shearPolygon(points, sx, sy){
+function shearPolygon(points, degree){
 	var pts = []; 
 	for ( var i = 0; i < points.length; i++){
-		pts[i] =  {"x": points[i].x + sx * points[i].y ,"y": points[i].y + sy * points[i].x};
+		pts[i] =  {"x": points[i].x +  Math.tan(degree * Math.PI/180)* points[i].y ,"y": points[i].y};
 	}
 	createPolygon(pts,"aquamarine");
 	printMatrix(pts, "changedformula");

@@ -55,7 +55,7 @@ function getLineSegmentInputs(){
 	createSegment(xLine,yLine,x1Line,y1Line, "blue");
     $("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();
+    $("#rotateText").show();
     $("#shear").show();
     $("#scale").show();
     $("#reflect").show();
@@ -72,7 +72,7 @@ function getVectorInputs(){
 	createVector(xVector,yVector,x1Vector,y1Vector, "blue");
     $("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();
+    $("#rotateText").show();
     $("#shear").show();
     $("#scale").show();
     $("#reflect").show();
@@ -89,7 +89,7 @@ function getEllipseInputs(){
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "origformula");
 	$("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();//static rotate only
+    $("#rotateMe").show();//static rotate only
     $("#scale").show();
     $("#reflect").show();
     submitted = 3;
@@ -105,7 +105,7 @@ function getParabolaInputs(){
 	printParabolaGeneralForm(xParabola,yParabola,mParabola,rParabola, "origformula");
     $("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();//static rotate only
+    $("#rotateMe").show();//static rotate only
     $("#scale").show();
     $("#reflect").show();
     submitted = 4;
@@ -120,7 +120,7 @@ function getHyperbolaInputs(){
     rHyperbola = parseFloat(document.hyperbolaRad.hyperbolaOrientation.value);    
     $("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();//static rotate only
+    $("#rotateMe").show();//static rotate only
     $("#scale").show();
     $("#reflect").show();
     submitted = 5;
@@ -136,7 +136,7 @@ function getPolygonInputs(){
 	printMatrix(points, "origformula");
     $("[name='transform']").hide();
     $("#translate").show();
-    $("#rotate").show();//static rotate only
+    $("#rotateText").show();
     $("#scale").show();
     $("#reflect").show();
     submitted = 6;
@@ -170,16 +170,15 @@ function getScaleInputs(){
 }
 
 function getShearInputs(){
-    var xShear = parseFloat(document.getElementById("xShear").value);
-    var yShear = parseFloat(document.getElementById("yShear").value);
+    var angleShear = parseFloat(document.getElementById("xShear").value);
 	switch(submitted){
 		case 0: break;
-		case 1: shearSegment(xLine,yLine,x1Line,y1Line,xShear,yShear); break;
-		case 2: shearVector(xVector,yVector,x1Vector,y1Vector,xShear,yShear); break;
+		case 1: shearSegment(xLine,yLine,x1Line,y1Line,angleShear); break;
+		case 2: shearVector(xVector,yVector,x1Vector,y1Vector,angleShear); break;
 		//case 3: shearEllipse break;
 		//case 4: shear parabola break;
 		//case 5: translate hyperbola break;
-		case 6: shearPolygon(points,xShear,yShear); break;
+		case 6: shearPolygon(points,angleShear); break;
     }
 }
 
@@ -197,7 +196,11 @@ function getReflectInputs(){
 }
 
 function getRotateInputs(){
-	var rotationAngle = parseFloat($('input:radio[name="rotationAngle"]:checked').val());
+	var rotationAngle;
+    if(submitted==1||submitted==2||submitted==6)
+        rotationAngle = parseFloat(document.getElementById("angleRotate").value);
+    else
+        rotationAngle = parseFloat($('input:radio[name="rotationAngle"]:checked').val());
 	switch(submitted){
         case 0: break;
 		case 1: rotateSegment(xLine,yLine,x1Line,y1Line,rotationAngle); break;
