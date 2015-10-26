@@ -82,33 +82,29 @@ function createHyperbola(cx,cy,h_distance,v_distance,orientation){
 	var majorAxis_length;
 	var v1,v2;
 
-	if(orientation == "horizontal")
-	{
-	
-	// opening left and right (horizontal)
-	
-	//getting foci
-	c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
-	focus1 = cx + c;
-	focus2 = cx - c;
-	
-	var f1 = board.create('point', [focus1,cy]);
-	var f2 = board.create('point', [focus2,cy]);
-	board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
+	if(orientation == "horizontal"){
+		// opening left and right (horizontal)
+		
+		//getting foci
+		c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
+		focus1 = cx + c;
+		focus2 = cx - c;
+		
+		var f1 = board.create('point', [focus1,cy]);
+		var f2 = board.create('point', [focus2,cy]);
+		board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
 	}
-	else if(orientation == "vertical")
-	{
-	
-	// opening up and down (vertical)
+	else if(orientation == "vertical"){
+		// opening up and down (vertical)
 
-	//getting foci
-	c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
-	focus1 = cy + c;
-	focus2 = cy - c;
-	
-	var f1 = board.create('point', [cx,focus1]);
-	var f2 = board.create('point', [cx,focus2]);
-	board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
+		//getting foci
+		c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
+		focus1 = cy + c;
+		focus2 = cy - c;
+		
+		var f1 = board.create('point', [cx,focus1]);
+		var f2 = board.create('point', [cx,focus2]);
+		board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
 
 	}
 }
