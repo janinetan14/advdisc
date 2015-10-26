@@ -132,9 +132,16 @@
                         <input type="submit" onclick="getTranslateInputs()"></input>
                     </div>
                 </div>
-                <div id="rotate" name="transform" class="padtop hidediv">
+                <div id="rotateText" name="transform" class="padtop hidediv">
                     <button id="rotateBtn" name="transformButtons" class="categoryLabel">Rotate</button>
                     <div id="rotate" name="transformLabels" class="padtop hidediv">
+                        <input id="angleRotate" type="number" step="any"></input><br><br>
+						<input type="submit" onclick="getRotateInputs()"></input>
+                    </div>
+                </div>
+                <div id="rotateMe" name="transform" class="padtop hidediv">
+                    <button id="rotateBtn1" name="transformButtons" class="categoryLabel">Rotate</button>
+                    <div id="rotateRadio" name="transformLabels" class="padtop hidediv">
 						<input type="radio" value="270" name="rotationAngle" checked>90 degrees clockwise<br><br>
 						<input type="radio" value="90" name="rotationAngle">90 degrees counter clockwise<br><br>
 						<input type="radio" value="180" name="rotationAngle">180 degrees<br><br>
