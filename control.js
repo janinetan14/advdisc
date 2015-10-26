@@ -121,6 +121,7 @@ function getHyperbolaInputs(){
     rHyperbola = document.hyperbolaRad.hyperbolaOrientation.value;
 	
 	createHyperbola(xHyperbola,yHyperbola,hHyperbola,vHyperbola,rHyperbola);
+	printHyperbolaGeneralForm(xHyperbola, yHyperbola, hHyperbola, vHyperbola, rHyperbola, "origformula");
     $("[name='transform']").hide();
     $("#translate").show();
     $("#rotateMe").show();//static rotate only
