@@ -170,16 +170,15 @@ function getScaleInputs(){
 }
 
 function getShearInputs(){
-    var xShear = parseFloat(document.getElementById("xShear").value);
-    var yShear = parseFloat(document.getElementById("yShear").value);
+    var angleShear = parseFloat(document.getElementById("xShear").value);
 	switch(submitted){
 		case 0: break;
-		case 1: shearSegment(xLine,yLine,x1Line,y1Line,xShear,yShear); break;
-		case 2: shearVector(xVector,yVector,x1Vector,y1Vector,xShear,yShear); break;
+		case 1: shearSegment(xLine,yLine,x1Line,y1Line,angleShear); break;
+		case 2: shearVector(xVector,yVector,x1Vector,y1Vector,angleShear); break;
 		//case 3: shearEllipse break;
 		//case 4: shear parabola break;
 		//case 5: translate hyperbola break;
-		case 6: shearPolygon(points,xShear,yShear); break;
+		case 6: shearPolygon(points,angleShear); break;
     }
 }
 
