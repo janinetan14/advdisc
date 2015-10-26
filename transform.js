@@ -129,7 +129,7 @@ function shearPolygon(points, degree){
 	printMatrix(pts, "changedformula");
 }
 
-function translayeHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation){
+function translateHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation){
 	createHyperbola(cx + tx, cy + ty, h_distance, v_distance, orientation);
 	printHyperbolaGeneralForm(cx + tx, cy + ty, h_distance, v_distance, orientation, "changedformula");
 }
@@ -137,17 +137,16 @@ function translayeHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation)
 function rotateHyperbola(cx, cy, degree, h_distance, v_distance, orientation){
 	if(degree == "90" || degree == "270")
 	{
-			//createHyperbola(cx, cy,h_distance,v_distance,orientation); 
-			if(orientation == "vertical")
-				createHyperbola(cx, cy ,v_distance,h_distance,"horizontal");  
-			else if(orientation == "horizontal")
-				createHyperbola(cx, cy ,v_distance,h_distance,"vertical");  
+			if(orientation == "vertical"){
+				orientation = "horizontal";
+			}
+			else if(orientation == "horizontal"){
+				orientation = "vertical";
+			}
+				
 	}
-	else if(degree == "180")	
-	{
-			createHyperbola(cx, cy,h_distance,v_distance,orientation);					
-	}
-	
+	createHyperbola(cx, cy,h_distance,v_distance,orientation);
+	printHyperbolaGeneralForm(cx, cy, h_distance, v_distance, orientation, "changedformula");
 }
 
 function scaleHyperbola(cx, cy, scale, h_distance, v_distance, orientation){
@@ -157,10 +156,10 @@ function scaleHyperbola(cx, cy, scale, h_distance, v_distance, orientation){
 
 function reflectHyperbola(cx, cy, axis, h_distance, v_distance, orientation){
 	if(axis == "x"){
-		cx = cx * -1;
+		cy = cy * -1;
 	}
 	else if(axis == "y"){
-		cy =cy * -1;
+		cx = cx * -1;
 	}
 	createHyperbola(cx, cy, h_distance, v_distance, orientation);
 	printHyperbolaGeneralForm(cx, cy, h_distance, v_distance, orientation, "changedformula");

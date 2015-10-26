@@ -156,7 +156,7 @@ function getTranslateInputs(){
 		case 2: translateVector(xVector, yVector, x1Vector, y1Vector, xTrans, yTrans); break;
 		case 3: translateEllipse({"x": xEllipse, "y": yEllipse}, xTrans, yTrans, hEllipse, vEllipse); break;
 		case 4: translateParabola(xParabola,yParabola,xTrans,yTrans,mParabola,rParabola); break;
-		//case 5: translate hyperbola break;
+		case 5: translateHyperbola(xHyperbola,yHyperbola,xTrans,yTrans,hHyperbola,vHyperbola,rHyperbola); break;
 		case 6: translatePolygon(points,xTrans,yTrans); break;
     }
 }
@@ -169,7 +169,7 @@ function getScaleInputs(){
 		case 2: scaleVector(xVector,yVector,x1Vector,y1Vector,numScale); break;
 		case 3: scaleEllipse({"x": xEllipse, "y": yEllipse}, numScale, hEllipse, vEllipse);break;
 		case 4: scaleParabola(xParabola,yParabola,numScale,mParabola,rParabola); break;
-		//case 5: translate hyperbola break;
+		case 5: scaleHyperbola(xHyperbola,yHyperbola,numScale,hHyperbola,vHyperbola,rHyperbola);break;
 		case 6: scalePolygon(points,numScale); break;
     }
 }
@@ -180,9 +180,9 @@ function getShearInputs(){
 		case 0: break;
 		case 1: shearSegment(xLine,yLine,x1Line,y1Line,angleShear); break;
 		case 2: shearVector(xVector,yVector,x1Vector,y1Vector,angleShear); break;
-		//case 3: shearEllipse break;
-		//case 4: shear parabola break;
-		//case 5: translate hyperbola break;
+		case 3: break;
+		case 4: break;
+		case 5: break;
 		case 6: shearPolygon(points,angleShear); break;
     }
 }
@@ -195,7 +195,7 @@ function getReflectInputs(){
 		case 2: reflectVector(xVector,yVector,x1Vector,y1Vector,axisReflect); break;
 		case 3: reflectEllipse({"x": xEllipse, "y": yEllipse}, axisReflect, hEllipse, vEllipse);break;
 		case 4: reflectParabola(xParabola,yParabola,axisReflect,mParabola,rParabola); break;
-		//case 5: translate hyperbola break;
+		case 5: reflectHyperbola(xHyperbola,yHyperbola,axisReflect,hHyperbola,vHyperbola,rHyperbola); break;
 		case 6: reflectPolygon(points,axisReflect); break;
     }
 }
@@ -212,7 +212,7 @@ function getRotateInputs(){
 		case 2: rotateVector(xVector,yVector,x1Vector,y1Vector,rotationAngle); break;
 		case 3: rotateEllipse({"x": xEllipse, "y": yEllipse}, rotationAngle, hEllipse, vEllipse);break;
 		case 4: rotateParabola(xParabola,yParabola,rotationAngle,mParabola,rParabola); break;
-		//case 5: translate hyperbola break;
+		case 5: rotateHyperbola(xHyperbola,yHyperbola,rotationAngle,hHyperbola,vHyperbola,rHyperbola); break;
 		case 6: rotatePolygon(points,rotationAngle); break;
     }
 }
