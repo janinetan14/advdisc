@@ -129,16 +129,28 @@ function shearPolygon(points, degree){
 	printMatrix(pts, "changedformula");
 }
 
-function translayeHyperbola(){
+function translayeHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation){
+	createHyperbola(cx + tx, cy + ty, h_distance, v_distance, orientation);
+	printHyperbolaGeneralForm(cx + tx, cy + ty, h_distance, v_distance, orientation, "changedformula");
 }
 
 function rotateHyperbola(){
 }
 
-function scaleHyperbola(){
+function scaleHyperbola(cx, cy, scale, h_distance, v_distance, orientation){
+	createHyperbola(cx, cy, h_distance * scale, v_distance * scale, orientation);
+	printHyperbolaGeneralForm(cx, cy, h_distance * scale, v_distance * scale, orientation, "changedformula");
 }
 
-function reflectHyperbola(){
+function reflectHyperbola(cx, cy, axis, h_distance, v_distance, orientation){
+	if(axis == "x"){
+		cx = cx * -1;
+	}
+	else if(axis == "y"){
+		cy =cy * -1;
+	}
+	createHyperbola(cx, cy, h_distance, v_distance, orientation);
+	printHyperbolaGeneralForm(cx, cy, h_distance, v_distance, orientation, "changedformula");
 }
 
 function translateParabola(vx, vy, tx, ty, magnitude, orientation){
@@ -180,7 +192,7 @@ function rotateParabola(vx, vy, degree, magnitude, orientation){
 		}
 	}
 	else if(degree == 180){
-			vx =vx * -1;
+			vx = vx * -1;
 			vy = vy * -1;
 			magnitude = magnitude * -1;
 	}
