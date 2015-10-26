@@ -143,48 +143,79 @@ function reflectHyperbola(){
 
 function translateParabola(vx, vy, tx, ty, magnitude, orientation){
 	createParabola(vx + tx, vy + ty, magnitude, orientation, "aquamarine");
+	printParabolaGeneralForm(vx + tx, vy + ty, magnitude, orientation, "changedformula");
+	
 }
 
 function rotateParabola(vx, vy, degree, magnitude, orientation){
-	if(degree == 90)
-	{
-		if(orientation == "vertical")
-			createParabola(vy * -1, vx, magnitude * -1, "horizontal", "aquamarine");
-		else if(orientation == "horizontal")
-			createParabola(vy * -1, vx , magnitude, "vertical", "aquamarine");
+	var temp;
+	if(degree == 90){
+		if(orientation == "vertical"){
+			temp = vx;
+			vx = vy *-1;
+			vy = temp;
+			magnitude = magnitude * -1;
+			orientation = "horizontal";
+		}
+		else if(orientation == "horizontal"){
+			temp = vx;
+			vx = vy * -1;
+			vy = temp;
+			orientation = "vertical";
+		}
 	}
-	else if(degree == 270)
-	{
-		if(orientation == "vertical")
-			createParabola(vy , vx * -1, magnitude, "horizontal", "aquamarine");
-		else if(orientation == "horizontal")
-			createParabola(vy * -1, vx * -1, magnitude * -1, "vertical", "aquamarine");
+	else if(degree == 270){
+		if(orientation == "vertical"){
+			temp = vx * -1;
+			vx = vy;
+			vy = temp;
+			orientation = "horizontal";
+		}
+		else if(orientation == "horizontal"){
+			temp = vx * -1;
+			vx = vy * -1;
+			vy = temp;
+			magnitude = magnitude * -1;
+			orientation = "vertical";
+		}
 	}
-	else if(degree == 180)
-	{
-			createParabola(vx * -1, vy * -1, magnitude * -1, orientation, "aquamarine"); 
+	else if(degree == 180){
+			vx =vx * -1;
+			vy = vy * -1;
+			magnitude = magnitude * -1;
 	}
+	createParabola(vx, vy, magnitude, orientation, "aquamarine");
+	printParabolaGeneralForm(vx, vy, magnitude, orientation, "changedformula");
 }
 
 function scaleParabola(vx, vy, scalar, magnitude, orientation){
 	createParabola(vx, vy, magnitude * scalar, orientation, "aquamarine");
+	printParabolaGeneralForm(vx, vy, magnitude * scalar, orientation, "changedformula");
 }
 
 function reflectParabola(vx, vy, axis, magnitude, orientation){
 	if(axis == "y")
 	{
-		if(orientation == "vertical")
-			createParabola(vx * -1, vy, magnitude, orientation, "aquamarine");
-		else if(orientation == "horizontal")
-			createParabola(vx * -1, vy, magnitude * -1, orientation, "aquamarine");
+		if(orientation == "vertical"){
+			vx = vx * -1;
+		}
+		else if(orientation == "horizontal"){
+			vx = vx * -1;
+			magnitude = magnitude * -1;
+		}
 	}
 	else if(axis == "x")
 	{
-		if(orientation == "vertical")
-			createParabola(vx, vy * -1, magnitude  * -1, orientation, "aquamarine");
-		else if(orientation == "horizontal")
-			createParabola(vx, vy * -1, magnitude, orientation, "aquamarine");
+		if(orientation == "vertical"){
+			vy = vy * -1;
+			magnitude = magnitude * -1;
+		}
+		else if(orientation == "horizontal"){
+			vy = vy * -1;
+		}
 	}
+	createParabola(vx, vy, magnitude, orientation, "aquamarine");
+	printParabolaGeneralForm(vx, vy, magnitude, orientation, "changedformula");
 }
 
 function translateEllipse(center, tx, ty, horizontal, vertical){
