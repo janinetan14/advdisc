@@ -118,7 +118,9 @@ function getHyperbolaInputs(){
 	yHyperbola = parseFloat(document.getElementById("yHyperbola").value);
 	hHyperbola = parseFloat(document.getElementById("horizontalHyperbola").value);
     vHyperbola = parseFloat(document.getElementById("verticalHyperbola").value);
-    rHyperbola = parseFloat(document.hyperbolaRad.hyperbolaOrientation.value);    
+    rHyperbola = document.hyperbolaRad.hyperbolaOrientation.value;
+	
+	createHyperbola(xHyperbola,yHyperbola,hHyperbola,vHyperbola,rHyperbola);
     $("[name='transform']").hide();
     $("#translate").show();
     $("#rotateMe").show();//static rotate only
