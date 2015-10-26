@@ -108,6 +108,7 @@ function getParabolaInputs(){
     $("#rotateMe").show();//static rotate only
     $("#scale").show();
     $("#reflect").show();
+	
     submitted = 4;
 }
 
@@ -139,6 +140,7 @@ function getPolygonInputs(){
     $("#rotateText").show();
     $("#scale").show();
     $("#reflect").show();
+	$("#shear").show();
     submitted = 6;
 }
 
