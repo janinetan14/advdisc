@@ -134,7 +134,20 @@ function translayeHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation)
 	printHyperbolaGeneralForm(cx + tx, cy + ty, h_distance, v_distance, orientation, "changedformula");
 }
 
-function rotateHyperbola(){
+function rotateHyperbola(cx, cy, degree, h_distance, v_distance, orientation){
+	if(degree == "90" || degree == "270")
+	{
+			//createHyperbola(cx, cy,h_distance,v_distance,orientation); 
+			if(orientation == "vertical")
+				createHyperbola(cx, cy ,v_distance,h_distance,"horizontal");  
+			else if(orientation == "horizontal")
+				createHyperbola(cx, cy ,v_distance,h_distance,"vertical");  
+	}
+	else if(degree == "180")	
+	{
+			createHyperbola(cx, cy,h_distance,v_distance,orientation);					
+	}
+	
 }
 
 function scaleHyperbola(cx, cy, scale, h_distance, v_distance, orientation){
