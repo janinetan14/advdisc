@@ -1,15 +1,15 @@
 function translatePoint(x, y, tx, ty){
-	createPoint(x+tx,y+ty,"aquamarine");
+	createPoint(x+tx,y+ty,"red");
 	printMatrix([{"x":x+tx, "y":y+ty}], "changedformula");
 }
 
 function translateSegement(x1, y1, x2, y2, tx, ty){
-	createSegment(x1+tx, y1+ty, x2+tx, y2+ty, "aquamarine");
+	createSegment(x1+tx, y1+ty, x2+tx, y2+ty, "red");
 	printMatrix([{"x":x1+tx, "y":y1+ty},{"x":x2+tx, "y":y2+ty}], "changedformula");
 }
 
 function scaleSegment(x1, y1, x2, y2, scalar){
-	createSegment(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "aquamarine");
+	createSegment(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "red");
 	printMatrix([{"x":x1*scalar, "y":y1*scalar},{"x":x2*scalar, "y":y2*scalar}], "changedformula");
 }
 
@@ -22,7 +22,7 @@ function reflectSegment(x1, y1, x2, y2, axis){
 		y1 = y1*-1;
 		y2 = y2*-1;	
 	}
-	createSegment(x1, y1, x2, y2, "aquamarine");
+	createSegment(x1, y1, x2, y2, "red");
 	printMatrix([{"x":x1, "y":y1},{"x":x2, "y":y2}], "changedformula");
 }
 
@@ -31,24 +31,24 @@ function rotateSegment(x1, y1, x2, y2, degree){
 	newy1 = x1*Math.sin(degree * Math.PI/180) + y1*Math.cos(degree * Math.PI/180);
 	newx2 = x2*Math.cos(degree * Math.PI/180) - y2*Math.sin(degree * Math.PI/180);
 	newy2 = x2*Math.sin(degree * Math.PI/180) + y2*Math.cos(degree * Math.PI/180);
-	createSegment(newx1, newy1, newx2, newy2, "aquamarine");
+	createSegment(newx1, newy1, newx2, newy2, "red");
 	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
 function shearSegment(x1, y1, x2, y2, degree){
 	newx1 = x1 + Math.tan(degree * Math.PI/180)*y1;
 	newx2 = x2 + Math.tan(degree * Math.PI/180)*y2;
-	createSegment(newx1, y1, newx2, y2, "aquamarine");
+	createSegment(newx1, y1, newx2, y2, "red");
 	printMatrix([{"x":newx1, "y":y1},{"x":newx2, "y":y2}], "changedformula");
 }
 
 function translateVector(x1, y1, x2, y2, tx, ty){
-	createVector(x1+tx, y1+ty, x2+tx, y2+ty, "aquamarine");
+	createVector(x1+tx, y1+ty, x2+tx, y2+ty, "red");
 	printMatrix([{"x":x1+tx, "y":y1+ty},{"x":x2+tx, "y":y2+ty}], "changedformula");
 }
 
 function scaleVector(x1, y1, x2, y2, scalar){
-	createVector(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "aquamarine");
+	createVector(x1*scalar, y1*scalar,x2*scalar, y2*scalar, "red");
 	printMatrix([{"x":x1*scalar, "y":y1*scalar},{"x":x2*scalar, "y":y2*scalar}], "changedformula");
 }
 
@@ -61,7 +61,7 @@ function reflectVector(x1, y1, x2, y2, axis){
 		y1 = y1*-1;
 		y2 = y2*-1;	
 	}
-	createVector(x1, y1, x2, y2, "aquamarine");
+	createVector(x1, y1, x2, y2, "red");
 	printMatrix([{"x":x1, "y":y1},{"x":x2, "y":y2}], "changedformula");
 }
 
@@ -70,14 +70,14 @@ function rotateVector(x1, y1, x2, y2, degree){
 	newy1 = x1*Math.sin(degree * Math.PI/180) + y1*Math.cos(degree * Math.PI/180);
 	newx2 = x2*Math.cos(degree * Math.PI/180) - y2*Math.sin(degree * Math.PI/180);
 	newy2 = x2*Math.sin(degree * Math.PI/180) + y2*Math.cos(degree * Math.PI/180);
-	createVector(newx1, newy1, newx2, newy2, "aquamarine");
+	createVector(newx1, newy1, newx2, newy2, "red");
 	printMatrix([{"x":newx1, "y":newy1},{"x":newx2, "y":newy2}], "changedformula");
 }
 
 function shearVector(x1, y1, x2, y2, degree){
 	newx1 = x1 + Math.tan(degree * Math.PI/180)*y1;
 	newx2 = x2 + Math.tan(degree * Math.PI/180)*y2;
-	createVector(newx1, y1, newx2, y2, "aquamarine");
+	createVector(newx1, y1, newx2, y2, "red");
 	printMatrix([{"x":newx1, "y":y1},{"x":newx2, "y":y2}], "changedformula");
 }
 
@@ -86,7 +86,7 @@ function translatePolygon(points,tx,ty){
 	for ( var i = 0; i < points.length; i++){
 		pts[i] = {"x": points[i].x + tx, "y": points[i].y + ty};
 	}
-	createPolygon(pts, "aquamarine");
+	createPolygon(pts, "red");
 	printMatrix(pts, "changedformula");
 }
 
@@ -95,7 +95,7 @@ function scalePolygon(points, scalar){
 	for ( var i = 0; i < points.length; i++){
 		pts[i] = {"x": points[i].x *scalar, "y": points[i].y *scalar};
 	}
-	createPolygon(pts, "aquamarine");
+	createPolygon(pts, "red");
 	printMatrix(pts, "changedformula");
 }
 
@@ -107,7 +107,7 @@ function reflectPolygon(points, axis){
 		else if(axis == "x")
 			pts[i] = {"x": points[i].x, "y" : points[i].y * -1};
 	}
-	createPolygon(pts, "aquamarine");
+	createPolygon(pts, "red");
 	printMatrix(pts, "changedformula");
 }
 
@@ -116,7 +116,7 @@ function rotatePolygon(points, degree){
 	for ( var i = 0; i < points.length; i++){
 		pts[i] =  {"x":points[i].x * Math.cos(degree * Math.PI/180) - points[i].y * Math.sin(degree * Math.PI/180),"y":points[i].x * Math.sin(degree * Math.PI/180) + points[i].y * Math.cos(degree * Math.PI/180)};
 	}
-	createPolygon(pts, "aquamarine");
+	createPolygon(pts, "red");
 	printMatrix(pts, "changedformula");
 }
 
@@ -125,18 +125,24 @@ function shearPolygon(points, degree){
 	for ( var i = 0; i < points.length; i++){
 		pts[i] =  {"x": points[i].x +  Math.tan(degree * Math.PI/180)* points[i].y ,"y": points[i].y};
 	}
-	createPolygon(pts,"aquamarine");
+	createPolygon(pts,"red");
 	printMatrix(pts, "changedformula");
 }
 
 function translateHyperbola(cx, cy, tx, ty, h_distance, v_distance, orientation){
-	createHyperbola(cx + tx, cy + ty, h_distance, v_distance, orientation);
+	createHyperbola(cx + tx, cy + ty, h_distance, v_distance, orientation,"red");
 	printHyperbolaGeneralForm(cx + tx, cy + ty, h_distance, v_distance, orientation, "changedformula");
 }
 
 function rotateHyperbola(cx, cy, degree, h_distance, v_distance, orientation){
-	if(degree == "90" || degree == "270")
-	{
+	var temp;
+	if(degree == 90){
+		temp = cx;
+		cx = cy * -1;
+		cy = temp;
+		temp = v_distance;
+		v_distance = h_distance;
+		h_distance = temp;
 			if(orientation == "vertical"){
 				orientation = "horizontal";
 			}
@@ -145,12 +151,30 @@ function rotateHyperbola(cx, cy, degree, h_distance, v_distance, orientation){
 			}
 				
 	}
-	createHyperbola(cx, cy,h_distance,v_distance,orientation);
-	printHyperbolaGeneralForm(cx, cy, h_distance, v_distance, orientation, "changedformula");
+	else if(degree == 270){
+		temp = cx * -1;
+		cx = cy;
+		cy = temp;
+		temp = v_distance;
+		v_distance = h_distance;
+		h_distance = temp;
+			if(orientation == "vertical"){
+				orientation = "horizontal";
+			}
+			else if(orientation == "horizontal"){
+				orientation = "vertical";
+			}
+	}
+	else if( degree == 180){
+		cx = cx * -1;
+		cy = cy * -1;
+	}
+	createHyperbola(cx, cy,h_distance,v_distance,orientation,"red");
+	printHyperbolaGeneralForm(cx, cy, v_distance, h_distance, orientation, "changedformula");
 }
 
 function scaleHyperbola(cx, cy, scale, h_distance, v_distance, orientation){
-	createHyperbola(cx, cy, h_distance * scale, v_distance * scale, orientation);
+	createHyperbola(cx, cy, h_distance * scale, v_distance * scale, orientation,"red");
 	printHyperbolaGeneralForm(cx, cy, h_distance * scale, v_distance * scale, orientation, "changedformula");
 }
 
@@ -161,12 +185,12 @@ function reflectHyperbola(cx, cy, axis, h_distance, v_distance, orientation){
 	else if(axis == "y"){
 		cx = cx * -1;
 	}
-	createHyperbola(cx, cy, h_distance, v_distance, orientation);
+	createHyperbola(cx, cy, h_distance, v_distance, orientation, "red");
 	printHyperbolaGeneralForm(cx, cy, h_distance, v_distance, orientation, "changedformula");
 }
 
 function translateParabola(vx, vy, tx, ty, magnitude, orientation){
-	createParabola(vx + tx, vy + ty, magnitude, orientation, "aquamarine");
+	createParabola(vx + tx, vy + ty, magnitude, orientation, "red");
 	printParabolaGeneralForm(vx + tx, vy + ty, magnitude, orientation, "changedformula");
 	
 }
@@ -208,12 +232,12 @@ function rotateParabola(vx, vy, degree, magnitude, orientation){
 			vy = vy * -1;
 			magnitude = magnitude * -1;
 	}
-	createParabola(vx, vy, magnitude, orientation, "aquamarine");
+	createParabola(vx, vy, magnitude, orientation, "red");
 	printParabolaGeneralForm(vx, vy, magnitude, orientation, "changedformula");
 }
 
 function scaleParabola(vx, vy, scalar, magnitude, orientation){
-	createParabola(vx, vy, magnitude * scalar, orientation, "aquamarine");
+	createParabola(vx, vy, magnitude * scalar, orientation, "red");
 	printParabolaGeneralForm(vx, vy, magnitude * scalar, orientation, "changedformula");
 }
 
@@ -238,14 +262,14 @@ function reflectParabola(vx, vy, axis, magnitude, orientation){
 			vy = vy * -1;
 		}
 	}
-	createParabola(vx, vy, magnitude, orientation, "aquamarine");
+	createParabola(vx, vy, magnitude, orientation, "red");
 	printParabolaGeneralForm(vx, vy, magnitude, orientation, "changedformula");
 }
 
 function translateEllipse(center, tx, ty, horizontal, vertical){
 	center.x = center.x + tx;
 	center.y =  center.y + ty;
-	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "red");
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
 
@@ -256,20 +280,20 @@ function rotateEllipse(center, degree, horizontal, vertical){
 		var temp = center.x;
 		center.x = center.y * -1;
 		center.y = temp;
-		ellipseSpecs = createEllipse(center, vertical, horizontal, "aquamarine");
+		ellipseSpecs = createEllipse(center, vertical, horizontal, "red");
 	}
 	else if( degree == 270)
 	{
 		var temp = center.x * -1;
 		center.x = center.y;
 		center.y = temp;
-		ellipseSpecs = createEllipse(center, vertical, horizontal, "aquamarine");
+		ellipseSpecs = createEllipse(center, vertical, horizontal, "red");
 	}
 	else if(degree == 180)
 	{
 		center.x = center.x * -1;
 		center.y = center.y * -1;
-		createEllipse(center, horizontal, vertical, "aquamarine");
+		createEllipse(center, horizontal, vertical, "red");
 	}
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
@@ -277,7 +301,7 @@ function rotateEllipse(center, degree, horizontal, vertical){
 function scaleEllipse(center, scalar, horizontal, vertical){
 	horizontal = horizontal * (scalar);
 	vertical = vertical * (scalar);
-	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "red");
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }
 
@@ -286,6 +310,6 @@ function reflectEllipse(center, axis, horizontal, vertical){
 		center.x = center.x * -1;
 	else if( axis == "x")
 		center.y = center.y * -1;
-	var ellipseSpecs = createEllipse(center, horizontal, vertical, "aquamarine");
+	var ellipseSpecs = createEllipse(center, horizontal, vertical, "red");
 	printEllipseGeneralForm(ellipseSpecs.center.x, ellipseSpecs.center.y, ellipseSpecs.horizontal, ellipseSpecs.vertical, "changedformula");
 }

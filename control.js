@@ -120,7 +120,7 @@ function getHyperbolaInputs(){
     vHyperbola = parseFloat(document.getElementById("verticalHyperbola").value);
     rHyperbola = document.hyperbolaRad.hyperbolaOrientation.value;
 	
-	createHyperbola(xHyperbola,yHyperbola,hHyperbola,vHyperbola,rHyperbola);
+	createHyperbola(xHyperbola,yHyperbola,hHyperbola,vHyperbola,rHyperbola, "blue");
 	printHyperbolaGeneralForm(xHyperbola, yHyperbola, hHyperbola, vHyperbola, rHyperbola, "origformula");
     $("[name='transform']").hide();
     $("#translate").show();

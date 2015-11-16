@@ -77,34 +77,17 @@ function createParabola(vx, vy, magnitude, orientation, color){
 }
 
 // int cx, int cy, int h_distance, v_distance, string orientation
-function createHyperbola(cx,cy,h_distance,v_distance,orientation){
-	var a,c, focus1, focus2;
-	var majorAxis_length;
-	var v1,v2;
-
+function createHyperbola(cx,cy,h_distance,v_distance,orientation,color){
+	var a, focus1, focus2;
 	if(orientation == "horizontal"){
-		// opening left and right (horizontal)
-		
-		//getting foci
-		c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
-		focus1 = cx + c;
-		focus2 = cx - c;
-		
-		var f1 = board.create('point', [focus1,cy]);
-		var f2 = board.create('point', [focus2,cy]);
-		board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
+		a = createPoint(cx +h_distance, cy, color);
+		focus1 = createPoint(cx + Math.sqrt(Math.pow(h_distance,2)+Math.pow(v_distance,2)),cy, color);
+		focus2 = createPoint(cx - Math.sqrt(Math.pow(h_distance,2)+Math.pow(v_distance,2)),cy, color);
 	}
 	else if(orientation == "vertical"){
-		// opening up and down (vertical)
-
-		//getting foci
-		c = Math.sqrt((Math.pow(h_distance,2)) + (Math.pow(v_distance,2))); 
-		focus1 = cy + c;
-		focus2 = cy - c;
-		
-		var f1 = board.create('point', [cx,focus1]);
-		var f2 = board.create('point', [cx,focus2]);
-		board.create('hyperbola',[f1,f2,(h_distance*2)],{strokeColor:'purple'});
-
+		a = createPoint(cx, cy + v_distance, color);
+		focus1 = createPoint(cx, cy + Math.sqrt(Math.pow(h_distance,2)+Math.pow(v_distance,2)), color);
+		focus2 = createPoint(cx, cy - Math.sqrt(Math.pow(h_distance,2)+Math.pow(v_distance,2)), color);
 	}
+	board.create('hyperbola',[focus1,focus2,a],{fixed:true, strokeColor:color});
 }
