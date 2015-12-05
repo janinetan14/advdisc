@@ -1,10 +1,9 @@
 var arrMsg;
 var arrKeyword;
 var arrCipher;
+var arrDecrypted;
 var msg = "";
 
-//problem ata is after ma-split ung msg sa loob nung function di siya na sasave for all...kaya may mga undefined o.o
-// diffent index for keyword (hai...)
 
 //Makes an array that contains each character in the message
 function msgSplitString()
@@ -43,7 +42,7 @@ function iniKeyword()
 }
 
 
-// hardcoded o.o
+
 function getNumericalValue(chr)
 {
 	//alert("chr is: " + chr);
@@ -104,7 +103,6 @@ function getNumericalValue(chr)
 }
 
 
-// harcdcoded again o.o
 function getCharacterValue(num)
 {
 	if (num == 0)
@@ -175,24 +173,64 @@ function getCipher()
 	
 		var tempNum; var tempChar; var a; var b;
 
-		console.log("index at:" + i); //o.o checking~
+		//console.log("index at:" + i); //o.o checking~
 		a = getNumericalValue(arrMsg[i]);
 		b = getNumericalValue(arrKeyword[i]);
 		
-		console.log("val of msg at " + i + " = " + a + " letter is: " + arrMsg[i]); 
-		console.log("val of key at " + i + " = " + b + " letter is: " + arrKeyword[i]);
+		//console.log("val of msg at " + i + " = " + a + " letter is: " + arrMsg[i]); 
+		//console.log("val of key at " + i + " = " + b + " letter is: " + arrKeyword[i]);
 		tempNum = (a + b) % 26;
 		//alert("cipher value = " + tempNum);
 		
 		//tempNum = ((getNumericalValue(arrMsg[i]) + getNumericalValue(arrKeyword[i])) % 26);  // was going to separate these two to see the value
 		tempChar = getCharacterValue(tempNum);
 		arrCipher.push(tempChar);
-		console.log("cipher at index " + i + ": " + arrCipher[i]);
+		//console.log("cipher at index " + i + ": " + arrCipher[i]);
 		
 
 		
 	}
 	
+}
+
+function decrypt()
+{
+	arrDecrypted = [];
+
+	var i = 0, j = 0;
+	for(i = 0; i < arrMsg.length; i++)
+	{
+	
+	var tempNum; var tempChar; var a; var b; // a = ciphered char ; b = key char
+	var diff;
+	
+
+	a = getNumericalValue(arrCipher[i]);
+	b = getNumericalValue(arrKeyword[i]);
+	
+	diff = a - b;
+	if (diff < 0)
+	{
+		tempNum = (a - b) % 26;
+		tempNum += 26;
+	}
+	else
+		tempNum = (a - b) % 26;
+	
+
+	
+	
+	tempChar = getCharacterValue(tempNum);
+	arrDecrypted.push(tempChar);
+
+	
+	
+	
+	
+	}
+
+
+
 }
 
 
@@ -201,6 +239,7 @@ function doStuff()
 	msgSplitString();
 	iniKeyword();
 	getCipher();
+	decrypt();
 
 
 	checkStuff();
@@ -241,6 +280,15 @@ function checkStuff()
 	}
 
 	alert("cipher is : " + temp2);
+	
+	var temp3 = "";
+	
+	for (var i = 0; i < arrDecrypted.length; i++)
+	{
+		temp3 += arrDecrypted[i];
+	}
+
+	alert("decrypted is : " + temp3);
 	
 	
 }
